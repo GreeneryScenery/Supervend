@@ -27,7 +27,7 @@
         android:fontFamily="monospace"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textColor="@color/lightPink"
+        android:textColor="?colorPrimary"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
 package com.example.recyclerviewcardview
 
+import android.annotation.SuppressLint
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
@@ -25,15 +26,12 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
 
     // The class holding the list view
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var itemImage: ImageView
-        var itemTitle: TextView
-        var itemDetails: TextView
+        var itemImage: ImageView = itemView.findViewById(R.id.item_image)
+        var itemTitle: TextView = itemView.findViewById(R.id.item_title)
+        var itemPrice: TextView = itemView.findViewById(R.id.item_price)
+        var itemWeight: TextView = itemView.findViewById(R.id.item_weight)
 
         init {
-            itemImage = itemView.findViewById(R.id.item_image)
-            itemTitle = itemView.findViewById(R.id.item_title)
-            itemDetails = itemView.findViewById(R.id.item_detail)
-
             itemView.setOnClickListener{ view ->
                 val pos = adapterPosition +1
                 Snackbar.make(view, "Click detected on item $pos", Snackbar.LENGTH_LONG)
@@ -41,10 +39,12 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
             }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bindItems(item : Item){
-            itemTitle.text = item.title
-            itemDetails.text = item.detail
             itemImage.setImageResource(item.images)
+            itemTitle.text = item.title
+            itemPrice.text = "$%.2f".format(item.price)
+            itemWeight.text = "%dg".format(item.weight)
         }
     }
 }
