@@ -35,21 +35,16 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
-        itemList.add(Item("Milo Instant Mix", 5.2f, 250, "Nestle",
-            "Milo with ACTIV-GO gives you the energy to go further. Contains b vitamins which contribute to the reduction of tiredness and fatigue.", R.drawable.milo))
-        itemList.add(Item("Instant Noodles", 2.4f, 500, "Myojo",
-            "Specially mixed flour for premium noodles is used to bring a chewy texture to the noodles.", R.drawable.instant_noodle))
-        itemList.add(Item("Ice Cream", 25.9f, 200, "Haagen Dazs",
-            "Fudgy chunks of brownie goodness mixed into dark and rich chocolate ice cream. Sounds like a dream.", R.drawable.ice_cream))
-        itemList.add(Item("Beef Cubes", 4.1f, 300, "Chef Delights",
-            "Made from quality meat Beef Cubes is a 100-Percent Halal product that is suitable for all consumer groups.", R.drawable.beef_cubes))
-        itemList.add(Item("Fuji Apples", 5.5f, 100, "Pasar",
-            "One of the sweetest apples with 16-18% sugar with a higher glucose/fructose content than most apples.\n", R.drawable.apples))
+        itemList.add(Item("Milo Instant Mix", 5.2f, 250, "Nestle", getString(R.string.milo_desc), R.drawable.milo))
+        itemList.add(Item("Instant Noodles", 2.4f, 500, "Myojo", getString(R.string.instant_noodles_desc), R.drawable.instant_noodle))
+        itemList.add(Item("Ice Cream", 25.9f, 200, "Haagen Dazs", getString(R.string.ice_cream_desc), R.drawable.ice_cream))
+        itemList.add(Item("Beef Cubes", 4.1f, 300, "Chef Delights", getString(R.string.beef_cubes_desc), R.drawable.beef_cubes))
+        itemList.add(Item("Fuji Apples", 5.5f, 100, "Pasar", getString(R.string.apples_desc), R.drawable.apples))
         val adapter = RecyclerAdapter(itemList)
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Opening", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }
