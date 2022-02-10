@@ -12,12 +12,18 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerviewcardview.Item
+import com.example.recyclerviewcardview.RecyclerAdapter
 import com.example.supervend.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private val itemList = ArrayList<Item>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +32,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        val layoutManager = GridLayoutManager(this, 1)
+        recyclerView.layoutManager = layoutManager
+        itemList.add(Item("Chapter One", "Item one Details", R.drawable.supervend))
+        val adapter = RecyclerAdapter(itemList)
+        recyclerView.setAdapter(adapter)
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
