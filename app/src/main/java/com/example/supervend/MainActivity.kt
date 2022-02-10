@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        val layoutManager = GridLayoutManager(this, 1)
+        val layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         itemList.add(Item("Milo Instant Mix", 5.2f, 250, "Nestle", "Item one Details", R.drawable.milo))
         itemList.add(Item("Instant Noodles", 2.4f, 500, "Myojo", "Item one Details", R.drawable.instant_noodle))
