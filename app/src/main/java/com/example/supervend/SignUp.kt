@@ -26,9 +26,9 @@ class SignUp : AppCompatActivity() {
 
                             val builder = AlertDialog.Builder(this)
                             val diagText = "Sign up successful!"
-                            builder.setTitle(R.string.alertTitle)
+                            builder.setTitle("Information")
                             builder.setMessage(diagText)
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
+                            builder.setIcon(android.R.drawable.ic_dialog_info)
                             // Performing positive action
                             builder.setPositiveButton("OK"){_, _ ->
                                 onBackPressed()
