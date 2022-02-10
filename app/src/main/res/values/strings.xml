@@ -30,4 +30,5 @@
     <string name="sign_up_now">Sign Up Now!</string>
     <string name="alertTitle">Alert</string>
     <string name="columns">Columns</string>
+    <string name="mode">Mode</string>
 </resources>
