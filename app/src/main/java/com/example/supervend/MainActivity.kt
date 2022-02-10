@@ -48,6 +48,29 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.contact_information -> {
+                val alertDialog: AlertDialog? = this?.let {
+                    val builder = AlertDialog.Builder(it)
+                    val inflater = this.layoutInflater
+                    val dialogView = inflater.inflate(R.layout.contact_information, null)
+                    builder.setView(dialogView)
+                    builder.apply {
+                        setPositiveButton(R.string.ok,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User clicked OK button
+                            })
+                        /*setNegativeButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User cancelled the dialog
+                            })*/
+                    }
+                    // Set other dialog properties
+                    builder?.setMessage(R.string.contact_message)
+                        ?.setTitle(R.string.contact_information)
+
+                    // Create the AlertDialog
+                    builder.create()
+                }
+                alertDialog?.show()
                 true
             }
             R.id.description -> {
@@ -67,8 +90,8 @@ class MainActivity : AppCompatActivity() {
                             })*/
                     }
                     // Set other dialog properties
-                    builder?.setMessage(R.string.dialog_message)
-                        ?.setTitle(R.string.dialog_title)
+                    builder?.setMessage(R.string.description_message)
+                        ?.setTitle(R.string.description)
 
                     // Create the AlertDialog
                     builder.create()
