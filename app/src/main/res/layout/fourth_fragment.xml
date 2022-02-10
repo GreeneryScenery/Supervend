@@ -6,16 +6,16 @@
     android:layout_height="match_parent">
 
 
-    <pl.droidsonroids.gif.GifImageView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/supervend_gif"
+        android:src="@drawable/icon"
         app:layout_constraintBottom_toTopOf="@+id/viewpaggertitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -40,15 +40,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/OBPg1"
+        android:text="@string/OBPg4"
         android:textAlignment="center"
 
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewpaggertitle" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewpaggertitle" />
+        app:layout_constraintTop_toBottomOf="@+id/viewpaggerdescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

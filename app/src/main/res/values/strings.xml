@@ -10,11 +10,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string name="OBTitle">Welcome to CS4131</string>
-    <string name="OBPg1">Ever wondered what goes behind great mobile apps?</string>
-    <string name="OBPg2">Learn to be proficient in Android Studio!</string>
-    <string name="OBPg3">Build great apps now!</string>
-    <string name="start">Start App!</string>
+    <string name="OBTitle">Welcome to SuperVend!</string>
+    <string name="OBPg1">We have the most advanced Vending Machines worldwide.</string>
+    <string name="OBPg2">Purchase products ranging from food to pharmacy by adding items to cart.</string>
+    <string name="OBPg3">Checkout and collect your items.</string>
+    <string name="OBPg4">What are you waiting for?</string>
+    <string name="start">Browse Now!</string>
 
     <string name="sign_up">Sign Up</string>
     <string name="contact_information">Contact Information</string>

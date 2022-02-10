@@ -12,7 +12,7 @@
         android:layout_height="300dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/onboardingpg2"
+        android:src="@drawable/basket"
         app:layout_constraintBottom_toTopOf="@+id/viewpaggertitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
