@@ -35,16 +35,18 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
-        itemList.add(Item("Milo Instant Mix", 5.2f, 250, "Nestle", getString(R.string.milo_desc), R.drawable.milo))
-        itemList.add(Item("Instant Noodles", 2.4f, 500, "Myojo", getString(R.string.instant_noodles_desc), R.drawable.instant_noodle))
-        itemList.add(Item("Ice Cream", 25.9f, 200, "Haagen Dazs", getString(R.string.ice_cream_desc), R.drawable.ice_cream))
-        itemList.add(Item("Beef Cubes", 4.1f, 300, "Chef Delights", getString(R.string.beef_cubes_desc), R.drawable.beef_cubes))
-        itemList.add(Item("Fuji Apples", 5.5f, 100, "Pasar", getString(R.string.apples_desc), R.drawable.apples))
+        val descArray = resources.getStringArray(R.array.item_descriptions)
+        val brandArray = resources.getStringArray(R.array.item_brands)
+        itemList.add(Item("Milo Instant Mix", 5.2f, 250, brandArray[0], descArray[0], R.drawable.milo))
+        itemList.add(Item("Instant Noodles", 2.4f, 500, brandArray[1], descArray[1], R.drawable.instant_noodle))
+        itemList.add(Item("Ice Cream", 25.9f, 200, brandArray[2], descArray[2], R.drawable.ice_cream))
+        itemList.add(Item("Beef Cubes", 4.1f, 300, brandArray[3], descArray[3], R.drawable.beef_cubes))
+        itemList.add(Item("Fuji Apples", 5.5f, 100, brandArray[4], descArray[4], R.drawable.apples))
         val adapter = RecyclerAdapter(itemList)
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Opening", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Opening Shopping Cart", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }
