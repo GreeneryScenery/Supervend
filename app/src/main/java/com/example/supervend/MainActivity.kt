@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.NumberPicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.GridLayoutManager
@@ -112,6 +113,43 @@ class MainActivity : AppCompatActivity() {
                     // Set other dialog properties
                     builder.setMessage(R.string.description_message)
                         ?.setTitle(R.string.description)
+
+                    // Create the AlertDialog
+                    builder.create()
+                }
+                alertDialog?.show()
+                true
+            }
+            R.id.columns -> {
+                val alertDialog: AlertDialog? = this?.let {
+                    val builder = AlertDialog.Builder(it)
+                    val inflater = this.layoutInflater
+                    val dialogView = inflater.inflate(R.layout.columns, null)
+                    builder.setView(dialogView)
+                    val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+                    val numberPicker = dialogView.findViewById<NumberPicker>(R.id.numberPicker)
+                    if (recyclerView.adapter!!.itemCount > 4) {
+                        numberPicker.maxValue = 4
+                    }
+                    else {
+                        numberPicker.maxValue = recyclerView.adapter!!.itemCount
+                    }
+                    numberPicker.minValue = 1
+                    numberPicker.wrapSelectorWheel = false
+                    builder.apply {
+                        setPositiveButton(R.string.ok,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User clicked OK button
+                                recyclerView.layoutManager = GridLayoutManager(this.context,numberPicker.value)
+                            })
+                        setNegativeButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User cancelled the dialog
+                            })
+                    }
+                    // Set other dialog properties
+                    builder?.setMessage("Select number of columns.")
+                        ?.setTitle("Columns")
 
                     // Create the AlertDialog
                     builder.create()
