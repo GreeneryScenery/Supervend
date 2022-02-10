@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
+import com.example.supervend.Item
 import com.example.supervend.R
 import com.google.android.material.snackbar.Snackbar
 
