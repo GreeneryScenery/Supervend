@@ -1,5 +1,7 @@
 package com.example.supervend
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.supervend.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -48,6 +51,29 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.description -> {
+                val alertDialog: AlertDialog? = this?.let {
+                    val builder = AlertDialog.Builder(it)
+                    val inflater = this.layoutInflater
+                    val dialogView = inflater.inflate(R.layout.description, null)
+                    builder.setView(dialogView)
+                    builder.apply {
+                        setPositiveButton(R.string.ok,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User clicked OK button
+                            })
+                        /*setNegativeButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                // User cancelled the dialog
+                            })*/
+                    }
+                    // Set other dialog properties
+                    builder?.setMessage(R.string.dialog_message)
+                        ?.setTitle(R.string.dialog_title)
+
+                    // Create the AlertDialog
+                    builder.create()
+                }
+                alertDialog?.show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
