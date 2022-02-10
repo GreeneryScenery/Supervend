@@ -12,12 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.example.supervend.Item
 import com.example.supervend.ItemActivity
+import com.example.supervend.MainActivity
 import com.example.supervend.R
 
 class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private lateinit var descArray : Array<String>
     private lateinit var brandArray : Array<String>
+    private lateinit var images : Array<Int>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v : View = LayoutInflater.from(parent.context)
@@ -25,7 +27,8 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
 
         descArray = v.resources.getStringArray(R.array.item_descriptions)
         brandArray = v.resources.getStringArray(R.array.item_brands)
-        return ViewHolder(v, descArray, brandArray)
+        images = MainActivity.images
+        return ViewHolder(v, descArray, brandArray, images)
 
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -34,7 +37,7 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
     override fun getItemCount() = itemList.size
 
     // The class holding the list view
-    class ViewHolder(itemView: View, descArray: Array<String>, brandArray: Array<String>) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, descArray: Array<String>, brandArray: Array<String>, images: Array<Int>) : RecyclerView.ViewHolder(itemView) {
         var itemImage: ImageView = itemView.findViewById(R.id.item_image)
         var itemTitle: TextView = itemView.findViewById(R.id.item_title)
         var itemPrice: TextView = itemView.findViewById(R.id.item_price)
@@ -43,14 +46,13 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
         init {
             itemView.setOnClickListener{ view ->
                 val intent = Intent(view.context, ItemActivity::class.java)
-                intent.putExtra("image", itemImage.drawable.toBitmap())
+                intent.putExtra("image",images[adapterPosition])
                 intent.putExtra("title", itemTitle.text)
                 intent.putExtra("price", itemPrice.text)
                 intent.putExtra("weight", itemWeight.text)
                 intent.putExtra("brand", brandArray[adapterPosition])
                 intent.putExtra("description", descArray[adapterPosition])
                 ContextCompat.startActivity(view.context, intent, null)
-
             }
         }
 

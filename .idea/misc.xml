@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/sign_up.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/signup.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/activity_item.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/card_layout.xml" value="0.16485507246376813" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/columns.xml" value="0.1" />

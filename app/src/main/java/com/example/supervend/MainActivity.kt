@@ -24,6 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     private val itemList = ArrayList<Item>()
 
+    companion object {
+        @JvmStatic lateinit var images:Array<Int>
+    }
+
+    init {
+        images= arrayOf(R.drawable.milo,R.drawable.instant_noodle,R.drawable.ice_cream,R.drawable.beef_cubes,R.drawable.apples)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,11 +45,11 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         val descArray = resources.getStringArray(R.array.item_descriptions)
         val brandArray = resources.getStringArray(R.array.item_brands)
-        itemList.add(Item("Milo Instant Mix", 5.2f, 250, brandArray[0], descArray[0], R.drawable.milo))
-        itemList.add(Item("Instant Noodles", 2.4f, 500, brandArray[1], descArray[1], R.drawable.instant_noodle))
-        itemList.add(Item("Ice Cream", 25.9f, 200, brandArray[2], descArray[2], R.drawable.ice_cream))
-        itemList.add(Item("Beef Cubes", 4.1f, 300, brandArray[3], descArray[3], R.drawable.beef_cubes))
-        itemList.add(Item("Fuji Apples", 5.5f, 100, brandArray[4], descArray[4], R.drawable.apples))
+        itemList.add(Item("Milo Instant Mix", 5.2f, 250, brandArray[0], descArray[0], images[0]))
+        itemList.add(Item("Instant Noodles", 2.4f, 500, brandArray[1], descArray[1], images[1]))
+        itemList.add(Item("Ice Cream", 25.9f, 200, brandArray[2], descArray[2], images[2]))
+        itemList.add(Item("Beef Cubes", 4.1f, 300, brandArray[3], descArray[3], images[3]))
+        itemList.add(Item("Fuji Apples", 5.5f, 100, brandArray[4], descArray[4], images[4]))
         val adapter = RecyclerAdapter(itemList)
         recyclerView.adapter = adapter
 
