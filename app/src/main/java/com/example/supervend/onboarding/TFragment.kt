@@ -1,4 +1,4 @@
-package com.example.onboarding.onboardingFragments
+package com.example.supervend.onboarding
 
 import android.content.Intent
 import android.os.Bundle

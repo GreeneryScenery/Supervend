@@ -1,4 +1,4 @@
-package com.example.lab4.onboarding
+package com.example.supervend.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,6 @@ import com.example.supervend.R
 class SFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.third_fragment, container, false)
+        return inflater.inflate(R.layout.second_fragment, container, false)
     }
 }
