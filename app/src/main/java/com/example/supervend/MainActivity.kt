@@ -2,6 +2,7 @@ package com.example.supervend
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -57,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.sign_up -> {
+                val intent = Intent(this, SignUp::class.java)
+                startActivity(intent)
                 true
             }
             R.id.contact_information -> {
