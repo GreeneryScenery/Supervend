@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
 
-    private val splashScreenTime = 3000L
+    private val splashScreenTime = 5000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
