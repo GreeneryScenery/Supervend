@@ -16,5 +16,13 @@
             android:id="@+id/contact_information"
             android:orderInCategory="100"
             android:title="@string/contact_information" />
+        <item
+            android:id="@+id/columns"
+            android:orderInCategory="101"
+            android:title="@string/columns" />
+        <item
+            android:id="@+id/mode"
+            android:orderInCategory="102"
+            android:title="@string/mode" />
     </group>
 </menu>

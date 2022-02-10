@@ -15,6 +15,7 @@
 
     <string name="description">Description</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="description_message">Welcome to SuperVend!</string>
     <string name="contact_message">Contact us:</string>
     <string name="description_content">SuperVend is cool!</string>
@@ -35,6 +36,6 @@
     <string name="beef_cubes_desc">Made from quality meat Beef Cubes is a 100-Percent Halal product that is suitable for all consumer groups.</string>
     <string name="apples_desc">One of the sweetest apples with 16-18% sugar with a higher glucose/fructose content than most apples.</string>
 
-
-
+    <string name="columns">Columns</string>
+    <string name="mode">Mode</string>
 </resources>
