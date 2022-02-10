@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:scaleType="fitEnd"
                 android:src="@drawable/supervend"
                 app:layout_collapseMode="parallax" />
 
