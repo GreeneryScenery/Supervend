@@ -5,7 +5,6 @@
     <group >
         <item
             android:id="@+id/sign_up"
-            android:icon="@drawable/sign_up"
             android:title="@string/sign_up"
             app:showAsAction="ifRoom" />
         <item
