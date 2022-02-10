@@ -9,6 +9,10 @@
             android:title="@string/sign_up"
             app:showAsAction="ifRoom" />
         <item
+            android:id="@+id/description"
+            android:orderInCategory="100"
+            android:title="@string/description" />
+        <item
             android:id="@+id/contact_information"
             android:orderInCategory="100"
             android:title="@string/contact_information" />
