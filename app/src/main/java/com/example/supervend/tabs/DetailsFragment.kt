@@ -1,4 +1,4 @@
-package com.example.lab4.tabs
+package com.example.supervend.tabs
 
 import android.os.Bundle
 import android.view.LayoutInflater

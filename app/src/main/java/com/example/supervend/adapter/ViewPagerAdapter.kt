@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.lab4.tabs.DetailsFragment
-import com.example.lab4.tabs.ReviewsFragment
+import com.example.supervend.tabs.DetailsFragment
+import com.example.supervend.tabs.ReviewsFragment
 
 private const val NUM_TABS = 2
 

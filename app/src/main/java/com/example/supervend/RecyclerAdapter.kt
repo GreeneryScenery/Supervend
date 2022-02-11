@@ -1,9 +1,7 @@
 package com.example.recyclerviewcardview
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
@@ -11,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
-import com.example.lab4.tabs.DetailsFragment
 import com.example.supervend.Item
 import com.example.supervend.ItemActivity
 import com.example.supervend.MainActivity
