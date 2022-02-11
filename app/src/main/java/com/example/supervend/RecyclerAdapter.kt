@@ -1,7 +1,9 @@
 package com.example.recyclerviewcardview
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
@@ -48,8 +50,8 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
                 val intent = Intent(view.context, ItemActivity::class.java)
                 intent.putExtra("image",images[adapterPosition])
                 intent.putExtra("name", itemName.text)
-                intent.putExtra("price", itemPrice.text)
-                intent.putExtra("weight", itemWeight.text)
+                intent.putExtra("price", itemPrice.text.toString().replace("$","").toFloat())
+                intent.putExtra("weight", itemWeight.text.toString().removeSuffix("g").toInt())
                 intent.putExtra("brand", brandArray[adapterPosition])
                 intent.putExtra("description", descArray[adapterPosition])
 
