@@ -34,7 +34,7 @@ class ItemActivity : AppCompatActivity() {
                 DetailsFragment.newInstance(name,price,weight,brand,detail,image)
             }
         }*/
-        val fragmentManager = supportFragmentManager
+        /*val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragment = DetailsFragment()
 
@@ -45,14 +45,25 @@ class ItemActivity : AppCompatActivity() {
         bundle.putString("brand", brand)
         bundle.putString("description", description)
         bundle.putInt("image",image)
-        fragment.arguments = bundle
+        fragment.arguments = bundle*/
         //fragmentTransaction.add(R., fragment).commit()
 
         val viewPager = findViewById<ViewPager2>(R.id.viewPager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
 
-        val itemAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-        viewPager.adapter = itemAdapter
+        if (name!=null&&brand!=null&&description!=null) {
+            val itemAdapter = ViewPagerAdapter(
+                supportFragmentManager,
+                lifecycle,
+                name,
+                price,
+                weight,
+                brand,
+                description,
+                image
+            )
+            viewPager.adapter = itemAdapter
+        }
 
         TabLayoutMediator(tabLayout, viewPager){ tab, position ->
             tab.text = tabs[position]

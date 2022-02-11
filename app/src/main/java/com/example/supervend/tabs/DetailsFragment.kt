@@ -12,7 +12,21 @@ import com.example.supervend.R
 import com.example.supervend.Details
 import com.example.supervend.databinding.FragmentDetailsBinding
 
-class DetailsFragment : Fragment() {
+class DetailsFragment(
+    name: String,
+    price: Float,
+    weight: Int,
+    brand: String,
+    description: String,
+    image: Int
+) : Fragment() {
+    private val name = name
+    private val price = price
+    private val weight = weight
+    private val brand = brand
+    private val description = description
+    private val image = image
+
     /*companion object {
         const val ARG_NAME = "name"
         const val ARG_PRICE = "price"
@@ -60,7 +74,7 @@ class DetailsFragment : Fragment() {
         /*items.add(Item(bundle!!.getString("name"),bundle!!.getFloat("price"),bundle!!.getInt(
             "weight"),bundle!!.getString("brand"),bundle!!.getString("description"),bundle!!.getInt(
             "images")))*/
-        items.add(Item("a",0f,0,"a","a",R.drawable.supervend))
+        items.add(Item(name, price, weight, brand, description, image))
         val recyclerAdapter = Details(items)
         recyclerView.adapter = recyclerAdapter
         return view

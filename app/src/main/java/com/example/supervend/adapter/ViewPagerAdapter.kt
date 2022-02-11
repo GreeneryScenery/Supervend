@@ -8,8 +8,15 @@ import com.example.lab4.tabs.DetailsFragment
 
 private const val NUM_TABS = 2
 
-class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, name: String , price: Float, weight: Int, brand: String, description: String, image: Int) :
         FragmentStateAdapter(fragmentManager, lifecycle) {
+
+    private val name = name
+    private val price = price
+    private val weight = weight
+    private val brand = brand
+    private val description = description
+    private val image = image
 
     override fun getItemCount(): Int {
         return NUM_TABS
@@ -19,7 +26,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         when (position) {
            // 0 -> return DetailsFragment()
         }
-        return DetailsFragment()
+        return DetailsFragment(name, price, weight, brand, description, image)
         //return ReviewsFragment()
     }
 }
