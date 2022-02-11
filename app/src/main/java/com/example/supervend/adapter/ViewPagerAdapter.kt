@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.lab4.tabs.DetailsFragment
+import com.example.lab4.tabs.ReviewsFragment
 
 private const val NUM_TABS = 2
 
@@ -24,9 +25,8 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, n
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-           // 0 -> return DetailsFragment()
+            0 -> return DetailsFragment(name, price, weight, brand, description, image)
         }
-        return DetailsFragment(name, price, weight, brand, description, image)
-        //return ReviewsFragment()
+        return ReviewsFragment()
     }
 }

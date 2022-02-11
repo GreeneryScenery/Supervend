@@ -8,20 +8,22 @@ import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.supervend.R
+import com.example.supervend.databinding.FragmentReviewsBinding
 
 class ReviewsFragment : Fragment() {
-    //private var _binding: FragmentChaptersBinding? = null
-    //private val binding get() = _binding!!
+    private var _binding: FragmentReviewsBinding? = null
+    private val binding get() = _binding!!
     //private val chpsList = ArrayList<Chapters>()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        /*_binding = FragmentChaptersBinding.inflate(inflater, container, false)
-        val view: View = inflater.inflate(R.layout.fragment_chapters, null)
+        _binding = FragmentReviewsBinding.inflate(inflater, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_reviews, null)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+       /* val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = GridLayoutManager(activity,2)
         chpsList.add(Chapters("Chapter One", "Introduction to Android App Development", R.drawable.android_image_1))
         chpsList.add(Chapters("Chapter Two", "Android Layouts, Views and View Groups", R.drawable.android_image_2))

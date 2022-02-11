@@ -67,7 +67,7 @@ class DetailsFragment(
         val recyclerView = view.findViewById<RecyclerView>(R.id.itemView)
         recyclerView.layoutManager = GridLayoutManager(activity,1)
 
-        val bundle = arguments
+        //val bundle = arguments
         /*items.add(Item(arguments?.getString(ARG_NAME),arguments?.getFloat(ARG_PRICE),arguments?.getInt(
             ARG_WEIGHT),arguments?.getString(ARG_BRAND),arguments?.getString(ARG_DETAIL),arguments?.getInt(
             ARG_IMAGES)))*/
