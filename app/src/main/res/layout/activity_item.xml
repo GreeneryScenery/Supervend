@@ -39,7 +39,7 @@
                 app:tabIndicatorHeight="4dp"
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="@color/blue_dark"
-                app:tabTextColor="@color/white" />
+                app:tabTextColor="@color/blue" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

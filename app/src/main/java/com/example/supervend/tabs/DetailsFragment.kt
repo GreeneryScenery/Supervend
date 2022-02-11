@@ -13,7 +13,7 @@ import com.example.supervend.Details
 import com.example.supervend.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
-    companion object {
+    /*companion object {
         const val ARG_NAME = "name"
         const val ARG_PRICE = "price"
         const val ARG_WEIGHT = "weight"
@@ -37,7 +37,7 @@ class DetailsFragment : Fragment() {
 
             return fragment
         }
-    }
+    }*/
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -50,11 +50,17 @@ class DetailsFragment : Fragment() {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val view: View = inflater.inflate(R.layout.fragment_details, null)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.itemView)
         recyclerView.layoutManager = GridLayoutManager(activity,1)
-        items.add(Item(arguments?.getString(ARG_NAME),arguments?.getFloat(ARG_PRICE),arguments?.getInt(
+
+        val bundle = arguments
+        /*items.add(Item(arguments?.getString(ARG_NAME),arguments?.getFloat(ARG_PRICE),arguments?.getInt(
             ARG_WEIGHT),arguments?.getString(ARG_BRAND),arguments?.getString(ARG_DETAIL),arguments?.getInt(
-            ARG_IMAGES)))
+            ARG_IMAGES)))*/
+        /*items.add(Item(bundle!!.getString("name"),bundle!!.getFloat("price"),bundle!!.getInt(
+            "weight"),bundle!!.getString("brand"),bundle!!.getString("description"),bundle!!.getInt(
+            "images")))*/
+        items.add(Item("a",0f,0,"a","a",R.drawable.supervend))
         val recyclerAdapter = Details(items)
         recyclerView.adapter = recyclerAdapter
         return view

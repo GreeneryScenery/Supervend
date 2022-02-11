@@ -24,7 +24,7 @@ class Details(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Details.View
         var textView : TextView = itemView.findViewById(R.id.detailsView)
 
         fun bindItems(item : Item){
-            textView.text = "Name: ${item.name}\n"
+            textView.text = "Name: ${item.name}\nPrice: ${item.price}\nWeight: ${item.weight}\nBrand: ${item.brand}\nDetails: ${item.description}"
         }
     }
 }

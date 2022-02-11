@@ -1,13 +1,12 @@
-package com.example.lab4.adapter
+package com.example.supervend.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.lab4.tabs.ReviewsFragment
 import com.example.lab4.tabs.DetailsFragment
 
-private const val NUM_TABS = 4
+private const val NUM_TABS = 2
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fragmentManager, lifecycle) {

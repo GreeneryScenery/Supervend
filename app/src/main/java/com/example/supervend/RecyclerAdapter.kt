@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
+import com.example.lab4.tabs.DetailsFragment
 import com.example.supervend.Item
 import com.example.supervend.ItemActivity
 import com.example.supervend.MainActivity
@@ -38,7 +39,7 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
     // The class holding the list view
     class ViewHolder(itemView: View, descArray: Array<String>, brandArray: Array<String>, images: Array<Int>) : RecyclerView.ViewHolder(itemView) {
         var itemImage: ImageView = itemView.findViewById(R.id.item_image)
-        var itemTitle: TextView = itemView.findViewById(R.id.item_title)
+        var itemName: TextView = itemView.findViewById(R.id.item_name)
         var itemPrice: TextView = itemView.findViewById(R.id.item_price)
         var itemWeight: TextView = itemView.findViewById(R.id.item_weight)
 
@@ -46,11 +47,12 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
             itemView.setOnClickListener{ view ->
                 val intent = Intent(view.context, ItemActivity::class.java)
                 intent.putExtra("image",images[adapterPosition])
-                intent.putExtra("title", itemTitle.text)
+                intent.putExtra("name", itemName.text)
                 intent.putExtra("price", itemPrice.text)
                 intent.putExtra("weight", itemWeight.text)
                 intent.putExtra("brand", brandArray[adapterPosition])
                 intent.putExtra("description", descArray[adapterPosition])
+
                 ContextCompat.startActivity(view.context, intent, null)
             }
         }
@@ -58,7 +60,7 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
         @SuppressLint("SetTextI18n")
         fun bindItems(item : Item){
             item.images?.let { itemImage.setImageResource(it) }
-            itemTitle.text = item.name
+            itemName.text = item.name
             itemPrice.text = "$%.2f".format(item.price)
             itemWeight.text = "%dg".format(item.weight)
         }

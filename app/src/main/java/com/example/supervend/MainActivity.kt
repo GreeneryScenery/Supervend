@@ -13,13 +13,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import com.example.lab4.adapter.ViewPagerAdapter
 import com.example.recyclerviewcardview.RecyclerAdapter
 import com.example.supervend.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
