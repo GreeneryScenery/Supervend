@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toBitmap
 import com.example.supervend.Item
 import com.example.supervend.ItemActivity
 import com.example.supervend.MainActivity
@@ -58,8 +57,8 @@ class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<Recy
 
         @SuppressLint("SetTextI18n")
         fun bindItems(item : Item){
-            itemImage.setImageResource(item.images)
-            itemTitle.text = item.title
+            item.images?.let { itemImage.setImageResource(it) }
+            itemTitle.text = item.name
             itemPrice.text = "$%.2f".format(item.price)
             itemWeight.text = "%dg".format(item.weight)
         }
