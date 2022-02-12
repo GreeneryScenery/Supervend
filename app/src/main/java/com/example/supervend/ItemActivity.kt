@@ -2,6 +2,7 @@ package com.example.supervend
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -16,7 +17,7 @@ class ItemActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item)
+        setContentView(R.layout.activity_item2)
 
         val intent = intent
         val name = intent.getStringExtra("name")
@@ -25,8 +26,20 @@ class ItemActivity : AppCompatActivity() {
         val brand = intent.getStringExtra("brand")
         val description = intent.getStringExtra("description")
         val image = intent.getIntExtra("image",R.drawable.supervend)
+
         val imageView = findViewById<ImageView>(R.id.backView)
+        val nameTXT = findViewById<TextView>(R.id.nameTXT)
+        val priceTXT = findViewById<TextView>(R.id.priceTXT)
+        val weightTXT = findViewById<TextView>(R.id.weightTXT)
+        val brandTXT = findViewById<TextView>(R.id.brandTXT)
+        val descriptionTXT = findViewById<TextView>(R.id.descriptionTXT)
+
         imageView.setImageDrawable(ContextCompat.getDrawable(this, image))
+        nameTXT.text = getString(R.string.item_name, name)
+        priceTXT.text = getString(R.string.item_price, price)
+        weightTXT.text = getString(R.string.item_weight, weight)
+        brandTXT.text = getString(R.string.item_brand, brand)
+        descriptionTXT.text = getString(R.string.item_description, description)
 
         /*val fragment = name?.let {
             if (brand != null && detail != null) {
@@ -47,26 +60,30 @@ class ItemActivity : AppCompatActivity() {
         fragment.arguments = bundle*/
         //fragmentTransaction.add(R., fragment).commit()
 
-        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
-        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
 
-        if (name!=null&&brand!=null&&description!=null) {
-            val itemAdapter = ViewPagerAdapter(
-                supportFragmentManager,
-                lifecycle,
-                name,
-                price,
-                weight,
-                brand,
-                description,
-                image
-            )
-            viewPager.adapter = itemAdapter
-        }
+        // activity_item1.xml
+//        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
+//        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+//
+//        if (name!=null&&brand!=null&&description!=null) {
+//            val itemAdapter = ViewPagerAdapter(
+//                supportFragmentManager,
+//                lifecycle,
+//                name,
+//                price,
+//                weight,
+//                brand,
+//                description,
+//                image
+//            )
+//            viewPager.adapter = itemAdapter
+//        }
+//
+//        TabLayoutMediator(tabLayout, viewPager){ tab, position ->
+//            tab.text = tabs[position]
+//            tab.setIcon(icons[position])
+//        }.attach()
 
-        TabLayoutMediator(tabLayout, viewPager){ tab, position ->
-            tab.text = tabs[position]
-            tab.setIcon(icons[position])
-        }.attach()
+
     }
 }

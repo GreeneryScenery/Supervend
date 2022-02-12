@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerviewcardview.RecyclerAdapter
 import com.example.supervend.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 

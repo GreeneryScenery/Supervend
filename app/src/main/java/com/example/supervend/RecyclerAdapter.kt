@@ -1,4 +1,4 @@
-package com.example.recyclerviewcardview
+package com.example.supervend
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,10 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
-import com.example.supervend.Item
-import com.example.supervend.ItemActivity
-import com.example.supervend.MainActivity
-import com.example.supervend.R
 
 class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 

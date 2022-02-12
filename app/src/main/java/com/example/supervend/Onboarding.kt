@@ -43,11 +43,12 @@ class Onboarding : AppCompatActivity() {
     }
     private fun castView() {
         viewPager = findViewById(R.id.view_pager2)
-        indicator = findViewById(R.id.indicator)
+        indicator = findViewById<CircleIndicator3>(R.id.indicator)
     }
 
-    fun start(view: View?){
+    private fun start(view: View?){
         startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
 
