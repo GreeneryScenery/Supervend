@@ -57,8 +57,8 @@
     </string-array>
 
     <string name="item_name">Name: %s</string>
-    <string name="item_price">Price: %.2f</string>
-    <string name="item_weight">Weight: %d</string>
+    <string name="item_price">Price: $%.2f</string>
+    <string name="item_weight">Weight: %dg</string>
     <string name="item_brand">Brand: %s</string>
     <string name="item_description">Description: %s</string>
     <string name="add_to_cart">Add to Cart</string>
