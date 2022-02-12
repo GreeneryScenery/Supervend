@@ -8,6 +8,7 @@
     android:background="@drawable/bg_color_gradient">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.Supervend.AppBarOverlay">
@@ -128,7 +129,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAlignBottom="false"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:src="@drawable/reviews"
+        app:fabSize="normal"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_marginEnd="30dp"
+
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="@string/description_content" />
 
 
 
