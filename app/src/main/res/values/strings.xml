@@ -87,8 +87,40 @@
     <string name="item_description">Description: %s</string>
     <string name="add_to_cart">Add to Cart</string>
 
-    <string-array name="milo">
-        <item></item>
+    <string-array name="milo_instant_mix_name">
+        <item>Karen</item>
+    </string-array>
+
+    <string-array name="milo_instant_mix_comment">
+        <item>Bought it for my kids. They loved it.</item>
+    </string-array>
+
+    <string-array name="milo_instant_mix_rating">
+        <item>4.5</item>
+    </string-array>
+
+    <string-array name="instant_noodles_name">
+        <item>Matt</item>
+    </string-array>
+
+    <string-array name="instant_noodles_comment">
+        <item>Perfect. I can purchase 10 at once.</item>
+    </string-array>
+
+    <string-array name="instant_noodles_rating">
+        <item>5</item>
+    </string-array>
+
+    <string-array name="ice_cream_name">
+        <item>Mary</item>
+    </string-array>
+
+    <string-array name="ice_cream_comment">
+        <item>Not recommended. Too much sugar.</item>
+    </string-array>
+
+    <string-array name="ice_cream_rating">
+        <item>1</item>
     </string-array>
 
 </resources>
