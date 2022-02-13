@@ -1,10 +1,14 @@
 package com.example.supervend
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ItemActivity : AppCompatActivity() {
 
@@ -29,6 +33,8 @@ class ItemActivity : AppCompatActivity() {
         val weightTXT = findViewById<TextView>(R.id.weightTXT)
         val brandTXT = findViewById<TextView>(R.id.brandTXT)
         val descriptionTXT = findViewById<TextView>(R.id.descriptionTXT)
+        val addToCartBTN = findViewById<Button>(R.id.addToCartBTN)
+        val reviewsFAB = findViewById<FloatingActionButton>(R.id.reviewsFAB)
 
         imageView.setImageDrawable(ContextCompat.getDrawable(this, image))
         nameTXT.text = getString(R.string.item_name, name)
@@ -36,6 +42,19 @@ class ItemActivity : AppCompatActivity() {
         weightTXT.text = getString(R.string.item_weight, weight)
         brandTXT.text = getString(R.string.item_brand, brand)
         descriptionTXT.text = getString(R.string.item_description, description)
+
+        addToCartBTN.setOnClickListener{ view ->
+            Toast.makeText(applicationContext, "Item added to cart!", Toast.LENGTH_SHORT).show()
+        }
+
+        reviewsFAB.setOnClickListener{ view ->
+
+            val newIntent = Intent(view.context, ReviewsActivity::class.java)
+            intent.putExtra("image", image)
+            intent.putExtra("name", name)
+
+            ContextCompat.startActivity(view.context, newIntent, null)
+        }
 
         /*val fragment = name?.let {
             if (brand != null && detail != null) {
