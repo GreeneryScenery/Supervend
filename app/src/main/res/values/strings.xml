@@ -123,4 +123,29 @@
         <item>1</item>
     </string-array>
 
+    <string-array name="beef_cubes_name">
+        <item>Ken</item>
+    </string-array>
+
+    <string-array name="beef_cubes_comment">
+        <item>Good. Moderate. Not bad.</item>
+    </string-array>
+
+    <string-array name="beef_cubes_rating">
+        <item>2.5</item>
+    </string-array>
+
+    <string-array name="fuji_apples_name">
+        <item>Funny</item>
+    </string-array>
+
+    <string-array name="fuji_apples_comment">
+        <item>Do not judge my surname. Anyway, I love these apples so much. They are fresh and very much addictive.</item>
+    </string-array>
+
+    <string-array name="fuji_apples_rating">
+        <item>5</item>
+    </string-array>
+
+
 </resources>
