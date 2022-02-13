@@ -26,7 +26,8 @@
     <string name="description_message">Welcome to SuperVend!</string>
     <string name="contact_message">Contact us:</string>
     <string name="description_content">SuperVend, a promising local startup which specializes in mega vending machines is also aiming to disrupt the retailing industry. Our company’s business model is to strategically position their mega vending machines (which are about the size of a 40 feet shipping containers) all over Singapore. Our idea is to bring supermarket nearer to customers 24/7 and to encourage social distancing due to the current raging COVID-19 pandemic. The goal of our company is to have a SuperVend vending machine installed within every 100 meters apart in each populated district by 2022.</string>
-    <string name="contact_content">Phone Number: +65 8888 8888\nEmail: SuperVendOfficial@supervend.sv</string>
+    <string name="contact_content_1">Phone Number: +65 8888 8888</string>
+    <string name="contact_content_2">Email: SuperVendOfficial@supervend.sv</string>
     <string name="signup">Sign Up</string>
     <string name="username">Username: </string>
     <string name="password">Password: </string>
