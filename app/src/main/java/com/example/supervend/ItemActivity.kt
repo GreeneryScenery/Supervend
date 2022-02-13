@@ -44,14 +44,7 @@ class ItemActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Item added to cart!", Toast.LENGTH_SHORT).show()
         }
 
-        reviewsFAB.setOnClickListener{ view ->
 
-            val newIntent = Intent(view.context, ReviewsActivity::class.java)
-            intent.putExtra("image", image)
-            intent.putExtra("name", name)
-
-            ContextCompat.startActivity(view.context, newIntent, null)
-        }
 
         /*val fragment = name?.let {
             if (brand != null && detail != null) {
