@@ -26,7 +26,8 @@
     <string name="description_message">Welcome to SuperVend!</string>
     <string name="contact_message">Contact us:</string>
     <string name="description_content">SuperVend, a promising local startup which specializes in mega vending machines is also aiming to disrupt the retailing industry. Our company’s business model is to strategically position their mega vending machines (which are about the size of a 40 feet shipping containers) all over Singapore. Our idea is to bring supermarket nearer to customers 24/7 and to encourage social distancing due to the current raging COVID-19 pandemic. The goal of our company is to have a SuperVend vending machine installed within every 100 meters apart in each populated district by 2022.</string>
-    <string name="contact_content">Phone Number: +65 8888 8888\nEmail: SuperVendOfficial@supervend.sv</string>
+    <string name="contact_content_1">Phone Number: +65 8888 8888</string>
+    <string name="contact_content_2">Email: SuperVendOfficial@supervend.sv</string>
     <string name="signup">Sign Up</string>
     <string name="username">Username: </string>
     <string name="password">Password: </string>
@@ -36,6 +37,8 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="sign_up_now">Sign Up Now!</string>
     <string name="alertTitle">Alert</string>
+
+    <string name="copy">Copy</string>
 
     <string name="columns">Columns</string>
     <string name="mode">Mode</string>
@@ -87,6 +90,20 @@
     <string name="item_description">Description: %s</string>
     <string name="add_to_cart">Add to Cart</string>
 
+    <array name="reviews">
+        <item>@array/milo_instant_mix</item>
+        <item>@array/instant_noodles</item>
+        <item>@array/ice_cream</item>
+        <item>@array/beef_cubes</item>
+        <item>@array/fuji_apples</item>
+    </array>
+
+    <array name="milo_instant_mix">
+        <item>@array/milo_instant_mix_name</item>
+        <item>@array/milo_instant_mix_comment</item>
+        <item>@array/milo_instant_mix_rating</item>
+    </array>
+
     <string-array name="milo_instant_mix_name">
         <item>Karen</item>
         <item>Jane</item>
@@ -111,6 +128,12 @@
         <item>5</item>
     </string-array>
 
+    <array name="instant_noodles">
+        <item>@array/instant_noodles_name</item>
+        <item>@array/instant_noodles_comment</item>
+        <item>@array/instant_noodles_rating</item>
+    </array>
+
     <string-array name="instant_noodles_name">
         <item>Matt</item>
         <item>Brady Haran</item>
@@ -130,6 +153,12 @@
         <item>4</item>
     </string-array>
 
+    <array name="ice_cream">
+        <item>@array/ice_cream_name</item>
+        <item>@array/ice_cream_comment</item>
+        <item>@array/ice_cream_rating</item>
+    </array>
+
     <string-array name="ice_cream_name">
         <item>Mary</item>
         <item>Harry</item>
@@ -148,6 +177,12 @@
         <item>5</item>
     </string-array>
 
+    <array name="beef_cubes">
+        <item>@array/beef_cubes_name</item>
+        <item>@array/beef_cubes_comment</item>
+        <item>@array/beef_cubes_rating</item>
+    </array>
+
     <string-array name="beef_cubes_name">
         <item>Ken</item>
         <item>Felix</item>
@@ -165,6 +200,12 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <array name="fuji_apples">
+        <item>@array/fuji_apples_name</item>
+        <item>@array/fuji_apples_comment</item>
+        <item>@array/fuji_apples_rating</item>
+    </array>
 
     <string-array name="fuji_apples_name">
         <item>Funny</item>
