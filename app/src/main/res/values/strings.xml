@@ -89,61 +89,79 @@
 
     <string-array name="milo_instant_mix_name">
         <item>Karen</item>
+        <item>Jane</item>
     </string-array>
 
     <string-array name="milo_instant_mix_comment">
         <item>Bought it for my kids. They loved it.</item>
+        <item>My husband loves it.</item>
     </string-array>
 
     <string-array name="milo_instant_mix_rating">
         <item>4.5</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="instant_noodles_name">
         <item>Matt</item>
+        <item>Brady Haran</item>
     </string-array>
 
     <string-array name="instant_noodles_comment">
         <item>Perfect. I can purchase 10 at once.</item>
+        <item>I love eating them while watching YouTube. Not healthy though. Eat sparingly.</item>
     </string-array>
 
     <string-array name="instant_noodles_rating">
         <item>5</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="ice_cream_name">
         <item>Mary</item>
+        <item>Harry</item>
     </string-array>
 
     <string-array name="ice_cream_comment">
         <item>Not recommended. Too much sugar.</item>
+        <item>Totally savoured it. I mean, who doesn't like ice cream, right? It tastes the best after lunch and dinner.</item>
     </string-array>
 
     <string-array name="ice_cream_rating">
         <item>1</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="beef_cubes_name">
         <item>Ken</item>
+        <item>Felix</item>
+        <item>Eve</item>
     </string-array>
 
     <string-array name="beef_cubes_comment">
-        <item>Good. Moderate. Not bad.</item>
+        <item>Good. Moderate. Average.</item>
+        <item>Definitely the choice for all families.</item>
+        <item>My mother loves to cook these beef cubes when I was little. Enjoyed them. Glad to find them again.</item>
     </string-array>
 
     <string-array name="beef_cubes_rating">
         <item>2.5</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="fuji_apples_name">
         <item>Funny</item>
+        <item>Diego</item>
     </string-array>
 
     <string-array name="fuji_apples_comment">
-        <item>Do not judge my surname. Anyway, I love these apples so much. They are fresh and very much addictive.</item>
+        <item>I love these apples so much. They are fresh and very much addictive.</item>
+        <item>I agree with Funny. I got so addicted that I ate 2 apples for breakfast, 4 apples for lunch and 3 apples for dinner. Definitely recommended!</item>
     </string-array>
 
     <string-array name="fuji_apples_rating">
+        <item>5</item>
         <item>5</item>
     </string-array>
 
