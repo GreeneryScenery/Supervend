@@ -2,6 +2,7 @@ package com.example.supervend
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -45,7 +46,7 @@ class ItemActivity : AppCompatActivity() {
         }
 
         reviewsFAB.setOnClickListener { view ->
-            val newIntent = Intent(applicationContext, ReviewsActivity::class.java)
+            val newIntent = Intent(this, ReviewsActivity::class.java)
             newIntent.putExtra("name", name)
             startActivity(newIntent)
         }

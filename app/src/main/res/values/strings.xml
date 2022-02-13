@@ -122,13 +122,13 @@
         <item>Drank this before my badminton competition and wow, did I move faster. recommended for drinking before sports.</item>
     </array>
 
-    <array name="milo_instant_mix_rating">
+    <string-array name="milo_instant_mix_rating">
         <item>4.5</item>
         <item>5</item>
         <item>5</item>
         <item>5</item>
         <item>5</item>
-    </array>
+    </string-array>
 
     <array name="instant_noodles">
         <item>@array/instant_noodles_name</item>
@@ -150,10 +150,10 @@
         <item>I agree with the gentlemen above. It is not recommended to eat too much despite its convenience.</item>
     </array>
 
-    <array name="instant_noodles_rating">
+    <string-array name="instant_noodles_rating">
         <item>5</item>
         <item>4</item>
-    </array>
+    </string-array>
 
     <array name="ice_cream">
         <item>@array/ice_cream_name</item>
@@ -173,11 +173,11 @@
         <item>Love it. A spoon of ice cream after work is heaven.</item>
     </array>
 
-    <array name="ice_cream_rating">
+    <string-array name="ice_cream_rating">
         <item>1</item>
         <item>5</item>
         <item>5</item>
-    </array>
+    </string-array>
 
     <array name="beef_cubes">
         <item>@array/beef_cubes_name</item>
@@ -197,11 +197,11 @@
         <item>My mother loves to cook these beef cubes when I was little. Enjoyed them. Glad to find them again.</item>
     </array>
 
-    <array name="beef_cubes_rating">
+    <string-array name="beef_cubes_rating">
         <item>2.5</item>
         <item>4</item>
         <item>5</item>
-    </array>
+    </string-array>
 
     <array name="fuji_apples">
         <item>@array/fuji_apples_name</item>
@@ -221,10 +221,10 @@
         <item>An apple a day keeps the doctor away. I lost many customers.</item>
     </array>
 
-    <array name="fuji_apples_rating">
+    <string-array name="fuji_apples_rating">
         <item>5</item>
         <item>5</item>
         <item>0</item>
-    </array>
+    </string-array>
 
 </resources>

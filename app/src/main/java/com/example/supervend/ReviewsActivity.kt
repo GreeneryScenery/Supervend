@@ -1,6 +1,5 @@
 package com.example.supervend
 
-import ReviewsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -8,16 +7,16 @@ import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.tabs.TabLayout
 
 class ReviewsActivity : AppCompatActivity() {
 
     private val reviewsList = ArrayList<Review?>()
 
-    @SuppressLint("ResourceType")
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    @SuppressLint("ResourceType", "Recycle")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reviews)
+
         val listView = findViewById<ListView>(R.id.listView)
         val name = intent.getStringExtra("name")
         val itemNames = resources.getStringArray(R.array.item_names)
@@ -36,6 +35,7 @@ class ReviewsActivity : AppCompatActivity() {
         val userRatings = resources.getStringArray(itemReview.getResourceId(2, -1))
 
         for (i in userNames.indices){
+            Log.i("reviewTAG", userNames[i] + ", " + userRatings[i] + ", " + userReviews[i])
             reviewsList.add(Review(R.drawable.anon_profile_pic, userNames[i], userRatings[i].toFloat(), userReviews[i]))
             Toast.makeText(applicationContext, "$i", Toast.LENGTH_SHORT).show()
         }
