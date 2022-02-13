@@ -38,6 +38,8 @@
     <string name="sign_up_now">Sign Up Now!</string>
     <string name="alertTitle">Alert</string>
 
+    <string name="copy">Copy</string>
+
     <string name="columns">Columns</string>
     <string name="mode">Mode</string>
 
@@ -88,6 +90,20 @@
     <string name="item_description">Description: %s</string>
     <string name="add_to_cart">Add to Cart</string>
 
+    <array name="reviews">
+        <item>@array/milo_instant_mix</item>
+        <item>@array/instant_noodles</item>
+        <item>@array/ice_cream</item>
+        <item>@array/beef_cubes</item>
+        <item>@array/fuji_apples</item>
+    </array>
+
+    <array name="milo_instant_mix">
+        <item>@array/milo_instant_mix_name</item>
+        <item>@array/milo_instant_mix_comment</item>
+        <item>@array/milo_instant_mix_rating</item>
+    </array>
+
     <string-array name="milo_instant_mix_name">
         <item>Karen</item>
         <item>Jane</item>
@@ -112,6 +128,12 @@
         <item>5</item>
     </string-array>
 
+    <array name="instant_noodles">
+        <item>@array/instant_noodles_name</item>
+        <item>@array/instant_noodles_comment</item>
+        <item>@array/instant_noodles_rating</item>
+    </array>
+
     <string-array name="instant_noodles_name">
         <item>Matt</item>
         <item>Brady Haran</item>
@@ -131,6 +153,12 @@
         <item>4</item>
     </string-array>
 
+    <array name="ice_cream">
+        <item>@array/ice_cream_name</item>
+        <item>@array/ice_cream_comment</item>
+        <item>@array/ice_cream_rating</item>
+    </array>
+
     <string-array name="ice_cream_name">
         <item>Mary</item>
         <item>Harry</item>
@@ -149,6 +177,12 @@
         <item>5</item>
     </string-array>
 
+    <array name="beef_cubes">
+        <item>@array/beef_cubes_name</item>
+        <item>@array/beef_cubes_comment</item>
+        <item>@array/beef_cubes_rating</item>
+    </array>
+
     <string-array name="beef_cubes_name">
         <item>Ken</item>
         <item>Felix</item>
@@ -166,6 +200,12 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <array name="fuji_apples">
+        <item>@array/fuji_apples_name</item>
+        <item>@array/fuji_apples_comment</item>
+        <item>@array/fuji_apples_rating</item>
+    </array>
 
     <string-array name="fuji_apples_name">
         <item>Funny</item>
