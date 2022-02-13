@@ -4,9 +4,11 @@ import ReviewsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayout
 
 class ReviewsActivity : AppCompatActivity() {
 
@@ -16,7 +18,6 @@ class ReviewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.activity_reviews)
-
         val listView = findViewById<ListView>(R.id.listView)
         val name = intent.getStringExtra("name")
         val itemNames = resources.getStringArray(R.array.item_names)
