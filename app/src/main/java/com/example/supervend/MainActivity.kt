@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.supervend.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import android.R.attr.label
+import android.annotation.SuppressLint
 import android.content.*
 import android.content.ContentValues.TAG
 import android.util.Log
@@ -31,12 +32,16 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         @JvmStatic lateinit var images:Array<Int>
+        lateinit var reviews: ArrayList<ArrayList<Review?>>
     }
+
 
     init {
         images= arrayOf(R.drawable.milo,R.drawable.instant_noodle,R.drawable.ice_cream,R.drawable.beef_cubes,R.drawable.apples)
+        reviews = ArrayList()
     }
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -71,6 +76,25 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Opening Shopping Cart", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        for (i in 0..4) {
+            val list = ArrayList<Review?>()
+            val itemReview = when (i) {
+                0 -> resources.obtainTypedArray(R.array.milo_instant_mix)
+                1 -> resources.obtainTypedArray(R.array.instant_noodles)
+                2 -> resources.obtainTypedArray(R.array.ice_cream)
+                3 -> resources.obtainTypedArray(R.array.beef_cubes)
+                4 -> resources.obtainTypedArray(R.array.fuji_apples)
+                else -> null
+            }
+            val userNames = resources.getStringArray(itemReview!!.getResourceId(0, -1))
+            val userReviews = resources.getStringArray(itemReview.getResourceId(1, -1))
+            val userRatings = resources.getStringArray(itemReview.getResourceId(2, -1))
+            for (j in userNames.indices){
+                list.add(Review(R.drawable.anon_profile_pic, userNames[j], userRatings[j].toFloat(), userReviews[j]))
+            }
+            reviews.add(list)
         }
     }
 
