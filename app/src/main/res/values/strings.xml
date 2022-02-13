@@ -153,6 +153,8 @@
     <string-array name="instant_noodles_rating">
         <item>5</item>
         <item>4</item>
+        <item>3.5</item>
+        <item>4</item>
     </string-array>
 
     <array name="ice_cream">
