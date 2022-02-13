@@ -163,16 +163,19 @@
 
     <string-array name="ice_cream_name">
         <item>Mary</item>
+        <item>Harry</item>
         <item>Jerry</item>
     </string-array>
 
     <string-array name="ice_cream_comment">
         <item>Not recommended. Too much sugar.</item>
+        <item>Totally savoured it. I mean, who doesn\'t like ice cream, right? It tastes the best after lunch and dinner.</item>
         <item>Love it. A spoon of ice cream after work is heaven.</item>
     </string-array>
 
     <string-array name="ice_cream_rating">
         <item>1</item>
+        <item>5</item>
         <item>5</item>
     </string-array>
 
