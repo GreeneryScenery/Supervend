@@ -1,14 +1,11 @@
 package com.example.supervend
 
-import ReviewsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.tabs.TabLayout
 
 class ReviewsActivity : AppCompatActivity() {
 
