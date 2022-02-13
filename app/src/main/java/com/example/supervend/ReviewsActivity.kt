@@ -3,6 +3,7 @@ package com.example.supervend
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -36,10 +37,9 @@ class ReviewsActivity : AppCompatActivity() {
         for (i in userNames.indices){
             Log.i("reviewTAG", userNames[i] + ", " + userRatings[i] + ", " + userReviews[i])
             reviewsList.add(Review(R.drawable.anon_profile_pic, userNames[i], userRatings[i].toFloat(), userReviews[i]))
-            Toast.makeText(applicationContext, "$i", Toast.LENGTH_SHORT).show()
         }
 
-        val adapter = ReviewsAdapter(applicationContext, reviewsList)
+        val adapter = ReviewsAdapter(this, reviewsList)
         listView.adapter = adapter
     }
 }
