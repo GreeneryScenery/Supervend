@@ -106,29 +106,29 @@
         <item>@array/milo_instant_mix_rating</item>
     </array>
 
-    <string-array name="milo_instant_mix_name">
+    <array name="milo_instant_mix_name">
         <item>Karen</item>
         <item>Jane</item>
         <item>Wok</item>
         <item>Marvel</item>
         <item>Jonathan</item>
-    </string-array>
+    </array>
 
-    <string-array name="milo_instant_mix_comment">
+    <array name="milo_instant_mix_comment">
         <item>Bought it for my kids. They loved it.</item>
         <item>My husband loves it.</item>
         <item>Good breakfast material.</item>
         <item>Whew! Glad to find that this is still in stock at SuperVend!</item>
         <item>Drank this before my badminton competition and wow, did I move faster. recommended for drinking before sports.</item>
-    </string-array>
+    </array>
 
-    <string-array name="milo_instant_mix_rating">
+    <array name="milo_instant_mix_rating">
         <item>4.5</item>
         <item>5</item>
         <item>5</item>
         <item>5</item>
         <item>5</item>
-    </string-array>
+    </array>
 
     <array name="instant_noodles">
         <item>@array/instant_noodles_name</item>
@@ -136,24 +136,24 @@
         <item>@array/instant_noodles_rating</item>
     </array>
 
-    <string-array name="instant_noodles_name">
+    <array name="instant_noodles_name">
         <item>Matt</item>
         <item>Brady Haran</item>
         <item>Burkard Polster</item>
         <item>Ramanujan</item>
-    </string-array>
+    </array>
 
-    <string-array name="instant_noodles_comment">
+    <array name="instant_noodles_comment">
         <item>Perfect. I can purchase 10 at once.</item>
         <item>I love eating them while watching YouTube. Not healthy though. Eat sparingly.</item>
         <item>I agree with Brady, eat sparingly.</item>
         <item>I agree with the gentlemen above. It is not recommended to eat too much despite its convenience.</item>
-    </string-array>
+    </array>
 
-    <string-array name="instant_noodles_rating">
+    <array name="instant_noodles_rating">
         <item>5</item>
         <item>4</item>
-    </string-array>
+    </array>
 
     <array name="ice_cream">
         <item>@array/ice_cream_name</item>
@@ -161,23 +161,23 @@
         <item>@array/ice_cream_rating</item>
     </array>
 
-    <string-array name="ice_cream_name">
+    <array name="ice_cream_name">
         <item>Mary</item>
         <item>Harry</item>
         <item>Jerry</item>
-    </string-array>
+    </array>
 
-    <string-array name="ice_cream_comment">
+    <array name="ice_cream_comment">
         <item>Not recommended. Too much sugar.</item>
         <item>Totally savoured it. I mean, who doesn\'t like ice cream, right? It tastes the best after lunch and dinner.</item>
         <item>Love it. A spoon of ice cream after work is heaven.</item>
-    </string-array>
+    </array>
 
-    <string-array name="ice_cream_rating">
+    <array name="ice_cream_rating">
         <item>1</item>
         <item>5</item>
         <item>5</item>
-    </string-array>
+    </array>
 
     <array name="beef_cubes">
         <item>@array/beef_cubes_name</item>
@@ -185,23 +185,23 @@
         <item>@array/beef_cubes_rating</item>
     </array>
 
-    <string-array name="beef_cubes_name">
+    <array name="beef_cubes_name">
         <item>Ken</item>
         <item>Felix</item>
         <item>Eve</item>
-    </string-array>
+    </array>
 
-    <string-array name="beef_cubes_comment">
+    <array name="beef_cubes_comment">
         <item>Good. Moderate. Average.</item>
         <item>Definitely the choice for all families.</item>
         <item>My mother loves to cook these beef cubes when I was little. Enjoyed them. Glad to find them again.</item>
-    </string-array>
+    </array>
 
-    <string-array name="beef_cubes_rating">
+    <array name="beef_cubes_rating">
         <item>2.5</item>
         <item>4</item>
         <item>5</item>
-    </string-array>
+    </array>
 
     <array name="fuji_apples">
         <item>@array/fuji_apples_name</item>
@@ -209,22 +209,22 @@
         <item>@array/fuji_apples_rating</item>
     </array>
 
-    <string-array name="fuji_apples_name">
+    <array name="fuji_apples_name">
         <item>Funny</item>
         <item>Diego</item>
         <item>Dr. Wu</item>
-    </string-array>
+    </array>
 
-    <string-array name="fuji_apples_comment">
+    <array name="fuji_apples_comment">
         <item>I love these apples so much. They are fresh and very much addictive.</item>
         <item>I agree with Funny. I got so addicted that I ate 2 apples for breakfast, 4 apples for lunch and 3 apples for dinner. Definitely recommended!</item>
         <item>An apple a day keeps the doctor away. I lost many customers.</item>
-    </string-array>
+    </array>
 
-    <string-array name="fuji_apples_rating">
+    <array name="fuji_apples_rating">
         <item>5</item>
         <item>5</item>
         <item>0</item>
-    </string-array>
+    </array>
 
 </resources>

@@ -44,51 +44,10 @@ class ItemActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Item added to cart!", Toast.LENGTH_SHORT).show()
         }
 
-
-
-        /*val fragment = name?.let {
-            if (brand != null && detail != null) {
-                DetailsFragment.newInstance(name,price,weight,brand,detail,image)
-            }
-        }*/
-        /*val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment = DetailsFragment()
-
-        val bundle = Bundle()
-        bundle.putString("name",name)
-        bundle.putFloat("price", price)
-        bundle.putInt("weight", weight)
-        bundle.putString("brand", brand)
-        bundle.putString("description", description)
-        bundle.putInt("image",image)
-        fragment.arguments = bundle*/
-        //fragmentTransaction.add(R., fragment).commit()
-
-
-        // activity_item1.xml
-//        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
-//        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
-//
-//        if (name!=null&&brand!=null&&description!=null) {
-//            val itemAdapter = ViewPagerAdapter(
-//                supportFragmentManager,
-//                lifecycle,
-//                name,
-//                price,
-//                weight,
-//                brand,
-//                description,
-//                image
-//            )
-//            viewPager.adapter = itemAdapter
-//        }
-//
-//        TabLayoutMediator(tabLayout, viewPager){ tab, position ->
-//            tab.text = tabs[position]
-//            tab.setIcon(icons[position])
-//        }.attach()
-
-
+        reviewsFAB.setOnClickListener { view ->
+            val newIntent = Intent(applicationContext, ReviewsActivity::class.java)
+            newIntent.putExtra("name", name)
+            startActivity(newIntent)
+        }
     }
 }
