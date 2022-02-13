@@ -1,12 +1,15 @@
 package com.example.supervend
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ReviewsActivity : AppCompatActivity() {
 
@@ -16,6 +19,32 @@ class ReviewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reviews)
+
+        val addFAB = findViewById<FloatingActionButton>(R.id.addFAB)
+
+        addFAB.setOnClickListener { view ->
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(it)
+                val inflater = this.layoutInflater
+                val dialogView = inflater.inflate(R.layout.add_review, null)
+                builder.setView(dialogView)
+                builder.apply {
+                    setPositiveButton("Add",
+                        DialogInterface.OnClickListener { dialog, id ->
+                            // User clicked OK button
+                        })
+                    setNegativeButton(R.string.cancel,
+                                    DialogInterface.OnClickListener { dialog, id ->
+                                        // User cancelled the dialog
+                                    })
+                }
+                builder.setMessage("Add a review:")
+                    ?.setTitle("Add Review")
+                builder.create()
+            }
+            alertDialog?.show()
+            true
+        }
 
         val listView = findViewById<ListView>(R.id.listView)
         val name = intent.getStringExtra("name")
