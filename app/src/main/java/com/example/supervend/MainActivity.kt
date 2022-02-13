@@ -1,13 +1,13 @@
 package com.example.supervend
 
+import android.R.attr
 import android.app.AlertDialog
-import android.content.DialogInterface
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.NumberPicker
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.supervend.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import android.R.attr.label
+import android.content.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -108,6 +111,20 @@ class MainActivity : AppCompatActivity() {
                     builder.create()
                 }
                 alertDialog?.show()
+                val phoneView = findViewById<TextView>(R.id.phoneView)
+                val emailView = findViewById<TextView>(R.id.emailView)
+                phoneView.setOnClickListener {
+                    val clipboard: ClipboardManager =
+                        getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    val clip = ClipData.newPlainText("SuperVend Phone Number", phoneView.text.toString())
+                    clipboard.setPrimaryClip(clip)
+                }
+                emailView.setOnClickListener {
+                    val clipboard: ClipboardManager =
+                        getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    val clip = ClipData.newPlainText("SuperVend Email", emailView.text.toString())
+                    clipboard.setPrimaryClip(clip)
+                }
                 true
             }
             R.id.description -> {
