@@ -40,12 +40,28 @@
     <string name="columns">Columns</string>
     <string name="mode">Mode</string>
 
-    <string-array name="item_descriptions">
-        <item>Milo with ACTIV-GO gives you the energy to go further. Contains b vitamins which contribute to the reduction of tiredness and fatigue.</item>
-        <item>Specially mixed flour for premium noodles is used to bring a chewy texture to the noodles.</item>
-        <item>Fudgy chunks of brownie goodness mixed into dark and rich chocolate ice cream. Sounds like a dream.</item>
-        <item>Made from quality meat Beef Cubes is a 100-Percent Halal product that is suitable for all consumer groups.</item>
-        <item>One of the sweetest apples with 16~18% sugar with a higher glucose/fructose content than most apples.</item>
+    <string-array name="item_names">
+        <item>Milo Instant Mix</item>
+        <item>Instant Noodles</item>
+        <item>Ice Cream</item>
+        <item>Beef Cubes</item>
+        <item>Fuji Apples</item>
+    </string-array>
+
+    <string-array name="item_prices">
+        <item>5.2</item>
+        <item>2.4</item>
+        <item>25.9</item>
+        <item>4.1</item>
+        <item>5.5</item>
+    </string-array>
+
+    <string-array name="item_weights">
+        <item>250</item>
+        <item>500</item>
+        <item>200</item>
+        <item>300</item>
+        <item>100</item>
     </string-array>
 
     <string-array name="item_brands">
@@ -56,6 +72,14 @@
         <item>Pasar</item>
     </string-array>
 
+    <string-array name="item_descriptions">
+        <item>Milo with ACTIV-GO gives you the energy to go further. Contains b vitamins which contribute to the reduction of tiredness and fatigue.</item>
+        <item>Specially mixed flour for premium noodles is used to bring a chewy texture to the noodles.</item>
+        <item>Fudgy chunks of brownie goodness mixed into dark and rich chocolate ice cream. Sounds like a dream.</item>
+        <item>Made from quality meat Beef Cubes is a 100-Percent Halal product that is suitable for all consumer groups.</item>
+        <item>One of the sweetest apples with 16~18% sugar with a higher glucose/fructose content than most apples.</item>
+    </string-array>
+
     <string name="item_name">Name: %s</string>
     <string name="item_price">Price: $%.2f</string>
     <string name="item_weight">Weight: %dg</string>
@@ -64,9 +88,7 @@
     <string name="add_to_cart">Add to Cart</string>
 
     <string-array name="milo">
-        <item>
-
-        </item>
+        <item></item>
     </string-array>
 
 </resources>

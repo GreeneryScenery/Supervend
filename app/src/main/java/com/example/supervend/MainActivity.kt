@@ -42,13 +42,23 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
-        val descArray = resources.getStringArray(R.array.item_descriptions)
+        val nameArray = resources.getStringArray(R.array.item_names)
+        val priceArray = resources.getStringArray(R.array.item_prices)
+        val weightArray = resources.getStringArray(R.array.item_weights)
         val brandArray = resources.getStringArray(R.array.item_brands)
-        itemList.add(Item("Milo Instant Mix", 5.2f, 250, brandArray[0], descArray[0], images[0]))
-        itemList.add(Item("Instant Noodles", 2.4f, 500, brandArray[1], descArray[1], images[1]))
-        itemList.add(Item("Ice Cream", 25.9f, 200, brandArray[2], descArray[2], images[2]))
-        itemList.add(Item("Beef Cubes", 4.1f, 300, brandArray[3], descArray[3], images[3]))
-        itemList.add(Item("Fuji Apples", 5.5f, 100, brandArray[4], descArray[4], images[4]))
+        val descArray = resources.getStringArray(R.array.item_descriptions)
+        for (i in nameArray.indices) {
+            itemList.add(
+                Item(
+                    nameArray[i],
+                    priceArray[i].toFloat(),
+                    weightArray[i].toInt(),
+                    brandArray[i],
+                    descArray[i],
+                    images[i]
+                )
+            )
+        }
         val adapter = RecyclerAdapter(itemList)
         recyclerView.adapter = adapter
 
