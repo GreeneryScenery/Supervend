@@ -8,12 +8,13 @@ import android.widget.ArrayAdapter
 import android.widget.RatingBar
 import android.widget.TextView
 import de.hdodenhof.circleimageview.CircleImageView
+import java.util.ArrayList
 
-class ReviewsAdapter(context: Context, reviewArrayList: ArrayList<Review?>) :
-    ArrayAdapter<Review?>(context, R.layout.list_review_item, reviewArrayList) {
-    override fun getView(position: Int, cView: View?, parent: ViewGroup): View {
+class ReviewsAdapter(context: Context, userArrayList: ArrayList<Review?>) :
+    ArrayAdapter<Review?>(context, R.layout.list_review_item, userArrayList) {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val review: Review? = getItem(position)
-        var convertView = cView
+        var convertView = convertView
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_review_item, parent, false)
         }
