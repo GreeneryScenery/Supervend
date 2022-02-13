@@ -36,7 +36,8 @@
             android:parentActivityName=".MainActivity"/>
 
         <activity android:name=".ReviewsActivity"
-            android:parentActivityName=".ItemActivity"/>
+            android:parentActivityName=".ItemActivity"
+            android:launchMode="singleInstance"/>
 
     </application>
 
