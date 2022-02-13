@@ -16,6 +16,7 @@ class ListAdapter(context: Context, userArrayList: ArrayList<Review?>) :
     ArrayAdapter<Review?>(context, R.layout.list_review_item, userArrayList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val review: Review? = getItem(position)
+        var convertView = convertView
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_review_item, parent, false)
         }

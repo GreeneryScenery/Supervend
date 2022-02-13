@@ -12,9 +12,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ItemActivity : AppCompatActivity() {
 
-    private val tabs = arrayOf("Details", "Reviews")
-    private val icons = arrayOf(R.drawable.info,R.drawable.reviews)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item2)
