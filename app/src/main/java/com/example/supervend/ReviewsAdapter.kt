@@ -1,32 +1,26 @@
-package com.example.supervend
-
-import android.widget.ArrayAdapter
 import android.R
 import android.content.Context
-
-import android.widget.TextView
-
 import android.view.LayoutInflater
 import android.view.View
-
 import android.view.ViewGroup
-import android.widget.ListAdapter
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.example.supervend.Review
+import java.util.ArrayList
 
-import androidx.annotation.NonNull
-import androidx.lifecycle.ViewModel
-
-
-class ReviewsAdapter(val viewModel: ViewModel) : ListAdapter<Review, ReviewsAdapter.ViewHolder>(){
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
-        var convertView: View = convertView
+class ListAdapter(context: Context, val layoutResource: Int, userArrayList: ArrayList<Review?>) :
+    ArrayAdapter<Review?>(context, layoutResource, userArrayList) {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var convertView = convertView
         val review: Review? = getItem(position)
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
+            convertView = LayoutInflater.from(context).inflate(layoutResource, parent, false)
         }
-        val imageView: ImageView = convertView.findViewById(R.id.profile_pic)
-        val userName: TextView = convertView.findViewById(R.id.personName)
-        val lastMsg: TextView = convertView.findViewById(R.id.lastMessage)
-        val time: TextView = convertView.findViewById(R.id.msgtime)
+        val imageView = convertView!!.findViewById<ImageView>(R.id.profile_pic)
+        val userName = convertView.findViewById<TextView>(R.id.personName)
+        val lastMsg = convertView.findViewById<TextView>(R.id.lastMessage)
+        val time = convertView.findViewById<TextView>(R.id.msgtime)
         imageView.setImageResource(user.imageId)
         userName.setText(user.name)
         lastMsg.setText(user.lastMessage)
