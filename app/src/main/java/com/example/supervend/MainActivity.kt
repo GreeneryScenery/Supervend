@@ -19,6 +19,7 @@ import android.R.attr.label
 import android.annotation.SuppressLint
 import android.content.*
 import android.content.ContentValues.TAG
+import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 
@@ -128,6 +129,10 @@ class MainActivity : AppCompatActivity() {
                         val clip = ClipData.newPlainText("SuperVend Phone Number", getString(R.string.phone))
                         clipboard.setPrimaryClip(clip)
                         val toast = Toast.makeText(applicationContext, "Phone number copied to clipboard!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(Intent.ACTION_DIAL)
+                        intent.data = Uri.parse("tel:${getString(R.string.phone)}")
+                        if(intent.resolveActivity(packageManager) != null)
+                            startActivity(intent)
                     }
                     emailView.setOnClickListener {
                         val clipboard: ClipboardManager =
@@ -135,6 +140,12 @@ class MainActivity : AppCompatActivity() {
                         val clip = ClipData.newPlainText("SuperVend Email", getString(R.string.email))
                         clipboard.setPrimaryClip(clip)
                         val toast = Toast.makeText(applicationContext, "Email copied to clipboard!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(Intent.ACTION_SENDTO)
+                        intent.data = Uri.parse("mailto:${getString(R.string.email)}")
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "SuperVend")
+                        intent.putExtra(Intent.EXTRA_TEXT, "Dear SuperVend,")
+                        if(intent.resolveActivity(packageManager) != null)
+                            startActivity(intent)
                     }
                     builder.apply {
                         setPositiveButton(R.string.ok,
@@ -190,8 +201,8 @@ class MainActivity : AppCompatActivity() {
                     builder.setView(dialogView)
                     val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
                     val numberPicker = dialogView.findViewById<NumberPicker>(R.id.numberPicker)
-                    if (recyclerView.adapter!!.itemCount > 4) {
-                        numberPicker.maxValue = 4
+                    if (recyclerView.adapter!!.itemCount > 3) {
+                        numberPicker.maxValue = 3
                     }
                     else {
                         numberPicker.maxValue = recyclerView.adapter!!.itemCount
