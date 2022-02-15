@@ -201,8 +201,8 @@ class MainActivity : AppCompatActivity() {
                     builder.setView(dialogView)
                     val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
                     val numberPicker = dialogView.findViewById<NumberPicker>(R.id.numberPicker)
-                    if (recyclerView.adapter!!.itemCount > 3) {
-                        numberPicker.maxValue = 3
+                    if (recyclerView.adapter!!.itemCount > 2) {
+                        numberPicker.maxValue = 2
                     }
                     else {
                         numberPicker.maxValue = recyclerView.adapter!!.itemCount
