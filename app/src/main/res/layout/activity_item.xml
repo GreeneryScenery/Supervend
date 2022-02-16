@@ -129,16 +129,18 @@
         android:id="@+id/reviewsFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="?attr/colorSecondary"
         android:baselineAlignBottom="false"
         android:clickable="true"
+
+        android:contentDescription="@string/description_content"
         android:src="@drawable/reviews"
         app:fabSize="normal"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="end|bottom"
-        android:layout_marginEnd="30dp"
-
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="@string/description_content" />
+        app:tint="?attr/colorOnPrimary"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 

@@ -55,6 +55,7 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:backgroundTint="?attr/colorSecondaryVariant"
+        app:tint="?attr/colorOnPrimary"
         app:srcCompat="@drawable/cart" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
