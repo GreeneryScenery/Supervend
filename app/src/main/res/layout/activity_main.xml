@@ -29,6 +29,7 @@
                 android:background="?attr/backgroundColor"
                 android:fitsSystemWindows="true"
                 android:paddingTop="?attr/actionBarSize"
+                android:paddingBottom="?attr/actionBarSize"
                 android:scaleType="fitCenter"
                 android:src="@drawable/supervend_gif"
                 app:layout_collapseMode="parallax" />
