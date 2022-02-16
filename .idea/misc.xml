@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable-night/anon_profile_pic.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable-night/anonymous.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/add_review.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/anon_profile_pic.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/anonymous.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/button_round.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/cart.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/info.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/drawable/reviews.xml" value="0.1" />
@@ -37,10 +40,8 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/splash_screen.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/third_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/menu/menu_main.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.23489583333333333" />
-        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable/copy.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_item.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_main.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_reviews.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/card_layout.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/content_main.xml" value="0.2749094202898551" />

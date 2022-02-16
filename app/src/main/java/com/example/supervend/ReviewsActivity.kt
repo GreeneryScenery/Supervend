@@ -8,6 +8,7 @@ import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.WindowManager
 import android.widget.ListView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -23,6 +24,11 @@ class ReviewsActivity : AppCompatActivity() {
     @SuppressLint("ResourceType", "Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(R.layout.activity_reviews)
 
         val addFAB = findViewById<FloatingActionButton>(R.id.addFAB)
