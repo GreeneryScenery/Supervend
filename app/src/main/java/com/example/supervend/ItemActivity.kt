@@ -3,7 +3,6 @@ package com.example.supervend
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -17,7 +16,7 @@ class ItemActivity : AppCompatActivity() {
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item2)
+        setContentView(R.layout.activity_item)
 
         val intent = intent
         val name = intent.getStringExtra("name")

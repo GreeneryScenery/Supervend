@@ -25,6 +25,7 @@
                 android:id="@+id/backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
                 android:fitsSystemWindows="true"
                 android:paddingTop="?attr/actionBarSize"
                 android:scaleType="fitCenter"
@@ -35,7 +36,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="?attr/colorPrimaryVariant"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/Theme.Supervend.PopupOverlay" />
@@ -53,6 +54,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="?attr/colorSecondaryVariant"
         app:srcCompat="@drawable/cart" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

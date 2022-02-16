@@ -21,6 +21,7 @@ import android.content.*
 import android.content.ContentValues.TAG
 import android.net.Uri
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 
 
@@ -47,6 +48,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
