@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity"
-    android:background="@drawable/bg_color_gradient">
+    android:background="@drawable/bg_color_gradient"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -16,13 +16,13 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg_color_gradient"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="SuperVend"
-            android:background="@drawable/bg_color_gradient">
+            app:title="SuperVend">
 
             <ImageView
                 android:id="@+id/backView"
@@ -43,9 +43,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_layout_shape"
+        android:padding="40dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:padding="40dp">
+        tools:ignore="SpeakableTextPresentCheck">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -65,10 +65,10 @@
                 android:id="@+id/priceTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/item_price"
                 android:textColor="?textFillColor"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nameTXT" />
 
@@ -76,10 +76,10 @@
                 android:id="@+id/weightTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/item_weight"
                 android:textColor="?textFillColor"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/priceTXT" />
 
@@ -87,10 +87,10 @@
                 android:id="@+id/brandTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/item_brand"
                 android:textColor="?textFillColor"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/weightTXT" />
 
@@ -98,10 +98,10 @@
                 android:id="@+id/descriptionTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/item_description"
                 android:textColor="?textFillColor"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/brandTXT" />
 
@@ -111,11 +111,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/button_round"
+                android:clickable="true"
                 android:padding="10dp"
                 android:text="@string/add_to_cart"
                 android:textAllCaps="true"
                 android:textSize="20sp"
-                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descriptionTXT"
                 tools:ignore="TextContrastCheck" />
@@ -151,7 +151,6 @@
         android:layout_marginEnd="20dp"
         android:clickable="false"
         android:rating="3"
-
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
