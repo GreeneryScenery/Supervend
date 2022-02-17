@@ -3,11 +3,9 @@ package com.example.supervend
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,6 +39,8 @@ class ItemActivity : AppCompatActivity() {
         val addToCartBTN = findViewById<Button>(R.id.addToCartBTN)
         val reviewsFAB = findViewById<FloatingActionButton>(R.id.reviewsFAB)
 
+        val averageRatingBar = findViewById<RatingBar>(R.id.averageRatingBar)
+
         imageView.setImageDrawable(ContextCompat.getDrawable(this, image))
         nameTXT.text = getString(R.string.item_name, name)
         priceTXT.text = getString(R.string.item_price, price)
@@ -57,5 +57,15 @@ class ItemActivity : AppCompatActivity() {
             newIntent.putExtra("name", name)
             startActivity(newIntent)
         }
+
+        val sp = getSharedPreferences(name, MODE_PRIVATE)
+        val numReviews = sp.getInt("numReviews", -1)
+        var average = 0.0f
+        for (i in 0 until numReviews){
+            average += sp.getFloat("${i}rating", -1f)
+        }
+        average /= numReviews
+
+        averageRatingBar.rating = average
     }
 }
