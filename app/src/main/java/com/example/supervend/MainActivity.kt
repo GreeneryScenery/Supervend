@@ -1,6 +1,5 @@
 package com.example.supervend
 
-import android.R.attr
 import android.app.AlertDialog
 import android.content.res.Configuration
 import android.os.Bundle
@@ -15,10 +14,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.supervend.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import android.R.attr.label
 import android.annotation.SuppressLint
 import android.content.*
-import android.content.ContentValues.TAG
 import android.net.Uri
 import android.util.Log
 import android.view.WindowManager
@@ -85,24 +82,56 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-        for (i in 0..4) {
-            val list = ArrayList<Review?>()
-            val itemReview = when (i) {
-                0 -> resources.obtainTypedArray(R.array.milo_instant_mix)
-                1 -> resources.obtainTypedArray(R.array.instant_noodles)
-                2 -> resources.obtainTypedArray(R.array.ice_cream)
-                3 -> resources.obtainTypedArray(R.array.beef_cubes)
-                4 -> resources.obtainTypedArray(R.array.fuji_apples)
-                else -> null
+        val sp = getSharedPreferences("settings", MODE_PRIVATE)
+        val myEdit = sp.edit()
+        if (sp.getBoolean("initiatedReviews", false)){
+            Log.i("revAct", "skipped review initiation")
+        } else{
+            val itemNames = resources.getStringArray(R.array.item_names)
+            for (i in itemNames.indices) {
+//            val list = ArrayList<Review?>()
+                val itemReview = when (i) {
+                    0 -> resources.obtainTypedArray(R.array.milo_instant_mix)
+                    1 -> resources.obtainTypedArray(R.array.instant_noodles)
+                    2 -> resources.obtainTypedArray(R.array.ice_cream)
+                    3 -> resources.obtainTypedArray(R.array.beef_cubes)
+                    4 -> resources.obtainTypedArray(R.array.fuji_apples)
+                    else -> null
+                }
+                val userNames = resources.getStringArray(itemReview!!.getResourceId(0, -1))
+                val userReviews = resources.getStringArray(itemReview.getResourceId(1, -1))
+                val userRatings = resources.getStringArray(itemReview.getResourceId(2, -1))
+                for (j in userNames.indices){
+//                list.add(Review(R.drawable.anon_profile_pic, userNames[j], userRatings[j].toFloat(), userReviews[j]))
+                    addReviewToSharedPref(itemNames[i], Review(R.drawable.anon_profile_pic, userNames[j], userRatings[j].toFloat(), userReviews[j]))
+                }
+//            reviews.add(list)
             }
-            val userNames = resources.getStringArray(itemReview!!.getResourceId(0, -1))
-            val userReviews = resources.getStringArray(itemReview.getResourceId(1, -1))
-            val userRatings = resources.getStringArray(itemReview.getResourceId(2, -1))
-            for (j in userNames.indices){
-                list.add(Review(R.drawable.anon_profile_pic, userNames[j], userRatings[j].toFloat(), userReviews[j]))
-            }
-            reviews.add(list)
+
+            myEdit.putBoolean("initiatedReviews", true)
+            myEdit.apply()
         }
+    }
+
+    private fun addReviewToSharedPref(itemName: String, review: Review) {
+        // Storing data into SharedPreferences
+        val sp = getSharedPreferences(itemName, MODE_PRIVATE)
+        val reviewIndex = sp.getInt("numReviews", 0)
+        // Creating an Editor object to edit(write to the file)
+        val myEdit = sp.edit()
+
+        // Storing the key and its value as the data fetched from edittext
+        myEdit.putInt("${reviewIndex}image", review.image)
+        myEdit.putString("${reviewIndex}name", review.name)
+        myEdit.putFloat("${reviewIndex}rating", review.rating)
+        myEdit.putString("${reviewIndex}review", review.review)
+
+        // Once the changes have been made,
+        // we need to commit to apply those changes made,
+        // otherwise, it will throw an error
+        myEdit.putInt("numReviews", reviewIndex + 1)
+        Log.i("revAct", "$itemName $reviewIndex")
+        myEdit.apply()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

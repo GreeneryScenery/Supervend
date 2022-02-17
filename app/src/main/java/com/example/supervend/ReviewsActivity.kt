@@ -2,29 +2,25 @@ package com.example.supervend
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.WindowManager
 import android.widget.ListView
 import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.supervend.MainActivity.Companion.reviews
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ReviewsActivity : AppCompatActivity() {
 
     private var reviewsList = ArrayList<Review?>()
+    private lateinit var itemName: String
 
     @SuppressLint("ResourceType", "Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        itemName = intent.getStringExtra("name").toString()
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -46,24 +42,22 @@ class ReviewsActivity : AppCompatActivity() {
                 val ratingBar = dialogView.findViewById<RatingBar>(R.id.ratingBar)
 
                 builder.apply {
-                    setPositiveButton("Add",
-                        DialogInterface.OnClickListener { dialog, id ->
-                            // User clicked OK button
-                            if (commentView.text.isNotEmpty() && !commentView.text.contains(" ")) {
-                                reviewsList.add(
-                                    Review(
-                                        R.drawable.anonymous,
-                                        "Anonymous (You)",
-                                        ratingBar.rating,
-                                        commentView.text.toString()
-                                    )
-                                )
-                            }
-                        })
-                    setNegativeButton(R.string.cancel,
-                                    DialogInterface.OnClickListener { dialog, id ->
-                                        // User cancelled the dialog
-                                    })
+                    setPositiveButton("Add") { dialog, id ->
+                        // User clicked OK button
+                        if (commentView.text.isNotEmpty() && !commentView.text.contains(" ")) {
+                            val newReview = Review(
+                                R.drawable.anonymous,
+                                "Anonymous (You)",
+                                ratingBar.rating,
+                                commentView.text.toString()
+                            )
+                            reviewsList.add(newReview)
+                            addReviewToSharedPref(itemName, newReview)
+                        }
+                    }
+                    setNegativeButton(R.string.cancel) { dialog, id ->
+                        // User cancelled the dialog
+                    }
                 }
                 builder.setMessage("Add a review:")
                     ?.setTitle("Add Review")
@@ -88,18 +82,41 @@ class ReviewsActivity : AppCompatActivity() {
         }
 
         val listView = findViewById<ListView>(R.id.listView)
-        val name = intent.getStringExtra("name")
-        val itemNames = resources.getStringArray(R.array.item_names)
 
-        when (name) {
-            itemNames[0] -> reviewsList = reviews[0]
-            itemNames[1] -> reviewsList = reviews[1]
-            itemNames[2] -> reviewsList = reviews[2]
-            itemNames[3] -> reviewsList = reviews[3]
-            itemNames[4] -> reviewsList = reviews[4]
-        }
+        extractReviews(itemName)
 
         val adapter = ReviewsAdapter(this, reviewsList)
         listView.adapter = adapter
+    }
+
+    private fun extractReviews(itemName: String?){
+        val sp = getSharedPreferences(itemName, MODE_PRIVATE)
+        val numReviews = sp.getInt("numReviews", -1)
+        for (i in 0 until numReviews){
+            reviewsList.add(Review(sp.getInt("${i}image", -1),
+                sp.getString("${i}name", "null"),
+                sp.getFloat("${i}rating", -1f),
+                sp.getString("${i}review", "null")))
+        }
+    }
+
+    private fun addReviewToSharedPref(itemName: String, review: Review) {
+        // Storing data into SharedPreferences
+        val sp = getSharedPreferences(itemName, MODE_PRIVATE)
+        val reviewIndex = sp.getInt("numReviews", 0)
+        // Creating an Editor object to edit(write to the file)
+        val myEdit = sp.edit()
+
+        // Storing the key and its value as the data fetched from edittext
+        myEdit.putInt("${reviewIndex}image", review.image)
+        myEdit.putString("${reviewIndex}name", review.name)
+        myEdit.putFloat("${reviewIndex}rating", review.rating)
+        myEdit.putString("${reviewIndex}review", review.review)
+
+        // Once the changes have been made,
+        // we need to commit to apply those changes made,
+        // otherwise, it will throw an error
+        myEdit.putInt("numReviews", reviewIndex + 1)
+        myEdit.apply()
     }
 }
