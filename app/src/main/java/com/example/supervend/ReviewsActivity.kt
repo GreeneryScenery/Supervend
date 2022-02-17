@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.WindowManager
 import android.widget.ListView
 import android.widget.RatingBar
@@ -44,13 +45,14 @@ class ReviewsActivity : AppCompatActivity() {
                 builder.apply {
                     setPositiveButton("Add") { dialog, id ->
                         // User clicked OK button
-                        if (commentView.text.isNotEmpty() && !commentView.text.contains(" ")) {
+                        if (commentView.text.isNotEmpty()) {
                             val newReview = Review(
                                 R.drawable.anonymous,
                                 "Anonymous (You)",
                                 ratingBar.rating,
                                 commentView.text.toString()
                             )
+                            Log.i("revAct", commentView.text.toString())
                             reviewsList.add(newReview)
                             addReviewToSharedPref(itemName, newReview)
                         }
@@ -97,6 +99,7 @@ class ReviewsActivity : AppCompatActivity() {
                 sp.getString("${i}name", "null"),
                 sp.getFloat("${i}rating", -1f),
                 sp.getString("${i}review", "null")))
+            Log.i("revAct", sp.getString("${i}review", "null").toString())
         }
     }
 

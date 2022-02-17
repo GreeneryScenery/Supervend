@@ -24,20 +24,17 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     private val itemList = ArrayList<Item>()
 
     companion object {
         @JvmStatic lateinit var images:Array<Int>
-        lateinit var reviews: ArrayList<ArrayList<Review?>>
     }
 
 
     init {
         images= arrayOf(R.drawable.milo,R.drawable.instant_noodle,R.drawable.ice_cream,R.drawable.beef_cubes,R.drawable.apples)
-        reviews = ArrayList()
     }
 
     @SuppressLint("ResourceType")
@@ -266,8 +263,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.mode -> {
-                val nightModeFlags: Int = this.getResources().getConfiguration().uiMode and  Configuration.UI_MODE_NIGHT_MASK
-                when (nightModeFlags) {
+                when (this.resources.configuration.uiMode and  Configuration.UI_MODE_NIGHT_MASK) {
                     Configuration.UI_MODE_NIGHT_YES -> AppCompatDelegate.setDefaultNightMode(
                         AppCompatDelegate.MODE_NIGHT_NO)
                     Configuration.UI_MODE_NIGHT_NO -> AppCompatDelegate.setDefaultNightMode(
