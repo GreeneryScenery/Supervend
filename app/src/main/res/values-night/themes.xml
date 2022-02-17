@@ -14,5 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="textFillColor">@color/white</item>
         <item name="backgroundColor">@color/off_black</item>
+        <item name="android:textColorSecondary">@color/black</item>
     </style>
 </resources>

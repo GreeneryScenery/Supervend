@@ -41,6 +41,7 @@
                 android:background="?attr/colorPrimaryVariant"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
+
                 app:popupTheme="@style/Theme.Supervend.PopupOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
