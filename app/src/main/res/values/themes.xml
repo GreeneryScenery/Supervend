@@ -21,9 +21,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.Supervend.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textColorSecondary">@color/dark_indigo</item>
-    </style>
+    <style name="Theme.Supervend.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="Theme.Supervend.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
