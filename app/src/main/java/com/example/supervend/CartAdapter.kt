@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import com.google.android.material.snackbar.Snackbar
 
 class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+    var isEnabled = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)
