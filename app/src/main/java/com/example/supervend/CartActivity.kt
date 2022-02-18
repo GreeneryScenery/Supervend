@@ -19,7 +19,7 @@ class CartActivity  : AppCompatActivity() {
 
         setContentView(R.layout.activity_cart)
 
-        val cartView = findViewById<RecyclerView>(R.id.cartView)
+        val cartView = findViewById<RecyclerView>(R.id.cartRecycle)
 
         extractItems()
 
