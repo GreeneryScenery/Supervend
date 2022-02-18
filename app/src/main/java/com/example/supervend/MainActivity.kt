@@ -75,8 +75,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Opening Shopping Cart", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            /*Snackbar.make(view, "Opening Shopping Cart", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()*/
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
         }
 
         val sp = getSharedPreferences("settings", MODE_PRIVATE)

@@ -39,6 +39,9 @@
             android:parentActivityName=".ItemActivity"
             android:launchMode="singleInstance"/>
 
+        <activity android:name=".CartActivity"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>

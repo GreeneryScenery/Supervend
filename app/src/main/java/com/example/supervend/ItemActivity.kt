@@ -68,4 +68,26 @@ class ItemActivity : AppCompatActivity() {
 
         averageRatingBar.rating = average
     }
+
+
+    private fun addItemToSharedPref() {
+        // Storing data into SharedPreferences
+        val sp = getSharedPreferences("cart", MODE_PRIVATE)
+        val reviewIndex = sp.getInt("numReviews", 0)
+        // Creating an Editor object to edit(write to the file)
+        val myEdit = sp.edit()
+
+        // Storing the key and its value as the data fetched from edittext
+        /*myEdit.putInt("${reviewIndex}image", review.image)
+        myEdit.putString("${reviewIndex}name", review.name)
+        myEdit.putFloat("${reviewIndex}rating", review.rating)
+        myEdit.putString("${reviewIndex}review", review.review)*/
+
+        // Once the changes have been made,
+        // we need to commit to apply those changes made,
+        // otherwise, it will throw an error
+        myEdit.putInt("numReviews", reviewIndex + 1)
+        Log.i("revAct", "$itemName $reviewIndex")
+        myEdit.apply()
+    }
 }
