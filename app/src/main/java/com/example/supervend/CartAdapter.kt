@@ -31,6 +31,8 @@ class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<Cart
 
         init {
 
+            cartList[adapterPosition +1].selected = false
+
             check.visibility = View.GONE
 
             cartView.setOnClickListener{ view ->
@@ -38,10 +40,12 @@ class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<Cart
 
                 if (cartList[pos].selected) {
                     check.visibility = View.GONE
+                    cartList[pos].selected = false
                 }
                 else {
                     check.visibility = View.VISIBLE
                     check.setImageResource(R.drawable.check)
+                    cartList[pos].selected = true
                 }
             }
 
