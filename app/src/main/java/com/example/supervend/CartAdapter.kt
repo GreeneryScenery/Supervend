@@ -8,13 +8,13 @@ import android.widget.TextView
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
+import androidx.core.view.get
 import com.google.android.material.snackbar.Snackbar
 
-class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     companion object {
         var isEnabled = false
         private lateinit var itemSelectedList:ArrayList<Int>
-        var showMenuDelete = false
     }
 
     init {
@@ -25,7 +25,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)
             .inflate(R.layout.cart_layout,parent,false)
-        return CartViewHolder(v, cartList)
+        return CartViewHolder(v, cartList, showMenuDelete)
 
     }
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
@@ -34,7 +34,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
     override fun getItemCount() = cartList.size
 
     // The class holding the list view
-    class CartViewHolder(cartView: View, cartList: ArrayList<CartItem>) : RecyclerView.ViewHolder(cartView) {
+    class CartViewHolder(cartView: View, cartList: ArrayList<CartItem>, var showMenuDelete: (Boolean) -> Unit) : RecyclerView.ViewHolder(cartView) {
         var cartImage: ImageView = cartView.findViewById(R.id.cartView)
         private var check: ImageView = cartView.findViewById(R.id.checkView)
         private var cartName: TextView = cartView.findViewById(R.id.cartName)
@@ -52,7 +52,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                     check.visibility = View.GONE
                     cartList[pos].selected = false
                     if (itemSelectedList.isEmpty()) {
-                        showMenuDelete = false
+                        showMenuDelete(false)
                         isEnabled = false
                     }
                 }
@@ -62,7 +62,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                     check.visibility = View.VISIBLE
                     check.setImageResource(R.drawable.check)
                     cartList[pos].selected = true
-                    showMenuDelete = true
+                    showMenuDelete(true)
                 }
             }
 
@@ -74,7 +74,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                 check.visibility = View.VISIBLE
                 check.setImageResource(R.drawable.check)
                 cartList[pos].selected = true
-                showMenuDelete = true
+                showMenuDelete(true)
                 true
             }
         }
@@ -85,5 +85,19 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
             cartAmount.text = "Amount: ${cartItem.amount}"
             cartItem.image?.let { cartImage.setImageResource(it) }
         }
+    }
+
+    fun delete(recyclerView: RecyclerView) {
+        if (itemSelectedList.isNotEmpty()) {
+            cartList.removeAll{item -> item.selected}
+            isEnabled = false
+            itemSelectedList.clear()
+            for (i in cartList.indices) {
+                val cartView = recyclerView[i]
+                val check: ImageView = cartView.findViewById(R.id.checkView)
+                check.visibility = View.GONE
+            }
+        }
+        notifyDataSetChanged()
     }
 }

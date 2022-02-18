@@ -2,6 +2,8 @@ package com.example.supervend
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -9,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CartActivity  : AppCompatActivity() {
 
+    private var menu: Menu? = null
     private var cartList = ArrayList<CartItem>()
+    private lateinit var cartView:RecyclerView
+    private lateinit var adapter:CartAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +28,9 @@ class CartActivity  : AppCompatActivity() {
         extractItems()
 
 
-        val cartView = findViewById<RecyclerView>(R.id.cartRecycle)
+        cartView = findViewById<RecyclerView>(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
-        val adapter = CartAdapter(cartList)
+        adapter = CartAdapter(cartList){show -> showDeleteMenu(show)}
         cartView.layoutManager = layoutManager
         cartView.adapter = adapter
     }
@@ -62,5 +67,27 @@ class CartActivity  : AppCompatActivity() {
         // otherwise, it will throw an error
         myEdit.putInt("numReviews", reviewIndex + 1)
         myEdit.apply()
+    }
+
+    fun showDeleteMenu(show: Boolean) {
+        menu?.findItem(R.id.delete)?.isVisible = show
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        this.menu = menu
+        menuInflater.inflate(R.menu.cart_menu, menu)
+        showDeleteMenu(false)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.delete -> {
+                adapter.delete(cartView)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
