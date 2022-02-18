@@ -8,7 +8,7 @@
     android:layout_margin="6dp"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="?colorPrimary"
+    app:cardBackgroundColor="?colorSecondary"
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:contentPadding="0dp">
@@ -16,14 +16,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSecondary"
+        android:background="?colorPrimary"
         android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="?attr/colorSecondaryVariant"
+            android:background="?attr/colorSecondary"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"

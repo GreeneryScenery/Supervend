@@ -58,7 +58,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:backgroundTint="?attr/colorSecondary"
         app:tint="?attr/colorOnPrimary"
         app:srcCompat="@drawable/cart" />
 
