@@ -1,5 +1,6 @@
 package com.example.supervend
 
+import android.annotation.SuppressLint
 import android.opengl.Visibility
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -58,9 +59,10 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
             }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bindItems(cartItem: CartItem){
             cartName.text = cartItem.name
-            cartAmount.text = cartItem.amount.toString()
+            cartAmount.text = "Amount: ${cartItem.amount}"
             cartItem.image?.let { cartImage.setImageResource(it) }
         }
     }
