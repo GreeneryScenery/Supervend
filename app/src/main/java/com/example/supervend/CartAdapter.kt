@@ -10,7 +10,15 @@ import android.view.LayoutInflater
 import com.google.android.material.snackbar.Snackbar
 
 class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    var isEnabled = false
+    companion object {
+        var isEnabled = false
+        private lateinit var itemSelectedList:ArrayList<Int>
+    }
+
+    init {
+        isEnabled = false
+        itemSelectedList = ArrayList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)
@@ -37,11 +45,17 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
             cartView.setOnClickListener{ view ->
                 val pos = adapterPosition
 
-                if (cartList[pos].selected) {
+                if (itemSelectedList.contains(pos)) {
+                    itemSelectedList.remove(pos)
                     check.visibility = View.GONE
                     cartList[pos].selected = false
+                    if (itemSelectedList.isEmpty()) {
+                        isEnabled = false
+                    }
                 }
-                else {
+                else if (isEnabled) {
+                    isEnabled = true
+                    itemSelectedList.add(pos)
                     check.visibility = View.VISIBLE
                     check.setImageResource(R.drawable.check)
                     cartList[pos].selected = true
@@ -50,6 +64,9 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
 
             cartView.setOnLongClickListener {
                 val pos = adapterPosition
+
+                isEnabled = true
+                itemSelectedList.add(pos)
                 check.visibility = View.VISIBLE
                 check.setImageResource(R.drawable.check)
                 cartList[pos].selected = true
