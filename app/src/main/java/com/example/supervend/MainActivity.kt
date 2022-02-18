@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val layoutManager = GridLayoutManager(this, 2)
-        recyclerView.layoutManager = layoutManager
         val nameArray = resources.getStringArray(R.array.item_names)
         val priceArray = resources.getStringArray(R.array.item_prices)
         val weightArray = resources.getStringArray(R.array.item_weights)
@@ -72,6 +71,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
         val adapter = RecyclerAdapter(itemList)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->

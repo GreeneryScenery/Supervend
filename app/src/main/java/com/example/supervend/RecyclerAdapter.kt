@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
 
-class RecyclerAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val itemList: ArrayList<Item>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private lateinit var descArray : Array<String>
     private lateinit var brandArray : Array<String>

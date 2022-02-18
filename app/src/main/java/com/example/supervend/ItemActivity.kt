@@ -50,7 +50,7 @@ class ItemActivity : AppCompatActivity() {
 
         addToCartBTN.setOnClickListener{ view ->
             Toast.makeText(applicationContext, "Item added to cart!", Toast.LENGTH_SHORT).show()
-            addItemToSharedPref(CartItem(name,0,image,false))
+            addItemToSharedPref(CartItem(name,1,image,false))
         }
 
         reviewsFAB.setOnClickListener { view ->
@@ -70,8 +70,20 @@ class ItemActivity : AppCompatActivity() {
         averageRatingBar.rating = average
     }
 
-
     private fun addItemToSharedPref(cartItem: CartItem) {
+        // Storing data into SharedPreferences
+        val sp = getSharedPreferences("cart", MODE_PRIVATE)
+        val amount = sp.getInt("${cartItem.name}|amount", 0)
+
+        val myEdit = sp.edit()
+        myEdit.putInt("${cartItem.name}|amount", amount + cartItem.amount!!)
+        myEdit.putInt("${cartItem.name}|image", cartItem.image!!)
+
+        myEdit.apply()
+    }
+
+
+    private fun addItemToSharedPref1(cartItem: CartItem) {
         // Storing data into SharedPreferences
         val sp = getSharedPreferences("cart", MODE_PRIVATE)
         val cartIndex = sp.getInt("numCart", 0)

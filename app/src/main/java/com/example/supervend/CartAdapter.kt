@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.view.LayoutInflater
 import com.google.android.material.snackbar.Snackbar
 
-class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)

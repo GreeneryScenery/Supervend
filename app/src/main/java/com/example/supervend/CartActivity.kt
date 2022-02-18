@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class CartActivity  : AppCompatActivity() {
@@ -19,23 +20,27 @@ class CartActivity  : AppCompatActivity() {
 
         setContentView(R.layout.activity_cart)
 
-        val cartView = findViewById<RecyclerView>(R.id.cartView)
-
         extractItems()
 
-        cartList.add(CartItem("a",1,1,false))
 
+        val cartView = findViewById<RecyclerView>(R.id.cartView)
+        val layoutManager = GridLayoutManager(this, 1)
         val adapter = CartAdapter(cartList)
+        cartView.layoutManager = layoutManager
         cartView.adapter = adapter
     }
 
     private fun extractItems(){
         val sp = getSharedPreferences("cart", MODE_PRIVATE)
-        val numCart = sp.getInt("numCart", -1)
-        for (i in 0 until numCart){
-            cartList.add(CartItem(sp.getString("${i}cartName", "null"),
-                sp.getInt("${i}cartAmount", -1),
-                sp.getInt("${i}cartImage", -1), false))
+        val itemNames = resources.getStringArray(R.array.item_names)
+        for (i in itemNames){
+            val amount = sp.getInt("${i}|amount", 0)
+            val image = sp.getInt("${i}|image", -1)
+            Log.i("CartItem", "${i}, ${amount}")
+            if (amount==0){
+                continue
+            }
+            cartList.add(CartItem(i, amount, image, false))
         }
     }
 
