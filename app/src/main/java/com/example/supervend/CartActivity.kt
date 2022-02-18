@@ -82,9 +82,11 @@ class CartActivity  : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val sp = getSharedPreferences("cart", MODE_PRIVATE)
+        val itemNames = resources.getStringArray(R.array.item_names)
         return when (item.itemId) {
             R.id.delete -> {
-                adapter.delete(cartView)
+                adapter.delete(cartView,sp, itemNames)
                 true
             }
             else -> super.onOptionsItemSelected(item)

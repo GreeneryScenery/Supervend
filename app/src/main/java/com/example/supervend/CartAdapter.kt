@@ -1,6 +1,7 @@
 package com.example.supervend
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.opengl.Visibility
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -87,9 +88,18 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
         }
     }
 
-    fun delete(recyclerView: RecyclerView) {
+    fun delete(recyclerView: RecyclerView, sp:SharedPreferences, itemNames: Array<String>) {
         if (itemSelectedList.isNotEmpty()) {
-            cartList.removeAll{item -> item.selected}
+            cartList.removeAll{item ->
+                for (i in itemNames.indices) {
+                    if (item.name == itemNames[i] && item.selected) {
+                        val myEdit = sp.edit()
+                        myEdit.putInt("${item.name}|amount", 0)
+                        myEdit.apply()
+                    }
+                }
+                item.selected
+            }
             isEnabled = false
             itemSelectedList.clear()
             for (i in cartList.indices) {
