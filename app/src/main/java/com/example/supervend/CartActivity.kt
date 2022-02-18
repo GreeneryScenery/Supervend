@@ -23,7 +23,7 @@ class CartActivity  : AppCompatActivity() {
         extractItems()
 
 
-        val cartView = findViewById<RecyclerView>(R.id.cartView)
+        val cartView = findViewById<RecyclerView>(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
         val adapter = CartAdapter(cartList)
         cartView.layoutManager = layoutManager
