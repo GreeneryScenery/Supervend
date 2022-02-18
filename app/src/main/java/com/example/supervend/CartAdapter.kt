@@ -13,6 +13,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
     companion object {
         var isEnabled = false
         private lateinit var itemSelectedList:ArrayList<Int>
+        var showMenuDelete = false
     }
 
     init {
@@ -50,6 +51,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                     check.visibility = View.GONE
                     cartList[pos].selected = false
                     if (itemSelectedList.isEmpty()) {
+                        showMenuDelete = false
                         isEnabled = false
                     }
                 }
@@ -59,6 +61,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                     check.visibility = View.VISIBLE
                     check.setImageResource(R.drawable.check)
                     cartList[pos].selected = true
+                    showMenuDelete = true
                 }
             }
 
@@ -70,6 +73,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>) : RecyclerView.Adap
                 check.visibility = View.VISIBLE
                 check.setImageResource(R.drawable.check)
                 cartList[pos].selected = true
+                showMenuDelete = true
                 true
             }
         }
