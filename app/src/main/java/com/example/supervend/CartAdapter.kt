@@ -61,7 +61,7 @@ class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<Cart
         fun bindItems(cartItem: CartItem){
             cartName.text = cartItem.name
             cartAmount.text = cartItem.amount.toString()
-            cartImage.setImageResource(cartItem.image)
+            cartItem.image?.let { cartImage.setImageResource(it) }
         }
     }
 }

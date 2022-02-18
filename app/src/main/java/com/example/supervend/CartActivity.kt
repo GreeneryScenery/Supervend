@@ -23,19 +23,19 @@ class CartActivity  : AppCompatActivity() {
 
         extractItems()
 
+        cartList.add(CartItem("a",1,1,false))
+
         val adapter = CartAdapter(cartList)
         cartView.adapter = adapter
     }
 
     private fun extractItems(){
         val sp = getSharedPreferences("cart", MODE_PRIVATE)
-        val numReviews = sp.getInt("numReviews", -1)
-        for (i in 0 until numReviews){
-            cartList.add(Review(sp.getInt("${i}image", -1),
-                sp.getString("${i}name", "null"),
-                sp.getFloat("${i}rating", -1f),
-                sp.getString("${i}review", "null")))
-            Log.i("revAct", sp.getString("${i}review", "null").toString())
+        val numCart = sp.getInt("numCart", -1)
+        for (i in 0 until numCart){
+            cartList.add(CartItem(sp.getString("${i}cartName", "null"),
+                sp.getInt("${i}cartAmount", -1),
+                sp.getInt("${i}cartImage", -1), false))
         }
     }
 

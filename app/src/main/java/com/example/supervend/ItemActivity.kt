@@ -50,6 +50,7 @@ class ItemActivity : AppCompatActivity() {
 
         addToCartBTN.setOnClickListener{ view ->
             Toast.makeText(applicationContext, "Item added to cart!", Toast.LENGTH_SHORT).show()
+            addItemToSharedPref(CartItem(name,0,image,false))
         }
 
         reviewsFAB.setOnClickListener { view ->
@@ -70,24 +71,35 @@ class ItemActivity : AppCompatActivity() {
     }
 
 
-    private fun addItemToSharedPref() {
+    private fun addItemToSharedPref(cartItem: CartItem) {
         // Storing data into SharedPreferences
         val sp = getSharedPreferences("cart", MODE_PRIVATE)
-        val reviewIndex = sp.getInt("numReviews", 0)
+        val cartIndex = sp.getInt("numCart", 0)
+        var index = cartIndex + 1
         // Creating an Editor object to edit(write to the file)
         val myEdit = sp.edit()
 
+        for (i in 0..cartIndex) {
+            if (sp.getString("${i}cartName","null") == cartItem.name) {
+                index = i
+                cartItem.amount = sp.getInt("${i}cartAmount",0)
+                break
+            }
+        }
+
+        if (index == cartIndex + 1) {
+            myEdit.putInt("numCart", cartIndex + 1)
+            cartItem.amount = 1
+        }
+
         // Storing the key and its value as the data fetched from edittext
-        /*myEdit.putInt("${reviewIndex}image", review.image)
-        myEdit.putString("${reviewIndex}name", review.name)
-        myEdit.putFloat("${reviewIndex}rating", review.rating)
-        myEdit.putString("${reviewIndex}review", review.review)*/
+        cartItem.image?.let { myEdit.putInt("${index}cartImage", it) }
+        myEdit.putString("${index}cartName", cartItem.name)
+        cartItem.amount?.let { myEdit.putInt("${index}cartAmount", it) }
 
         // Once the changes have been made,
         // we need to commit to apply those changes made,
         // otherwise, it will throw an error
-        myEdit.putInt("numReviews", reviewIndex + 1)
-        Log.i("revAct", "$itemName $reviewIndex")
         myEdit.apply()
     }
 }
