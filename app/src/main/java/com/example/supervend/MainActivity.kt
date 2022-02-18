@@ -233,11 +233,23 @@ class MainActivity : AppCompatActivity() {
                     builder.setView(dialogView)
                     val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
                     val numberPicker = dialogView.findViewById<NumberPicker>(R.id.numberPicker)
-                    if (recyclerView.adapter!!.itemCount > 2) {
-                        numberPicker.maxValue = 2
-                    }
-                    else {
-                        numberPicker.maxValue = recyclerView.adapter!!.itemCount
+                    val orientation = resources.configuration.orientation
+                    if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        // In landscape
+                        if (recyclerView.adapter!!.itemCount > 3) {
+                            numberPicker.maxValue = 3
+                        }
+                        else {
+                            numberPicker.maxValue = recyclerView.adapter!!.itemCount
+                        }
+                    } else {
+                        // In portrait
+                        if (recyclerView.adapter!!.itemCount > 2) {
+                            numberPicker.maxValue = 2
+                        }
+                        else {
+                            numberPicker.maxValue = recyclerView.adapter!!.itemCount
+                        }
                     }
                     numberPicker.minValue = 1
                     numberPicker.wrapSelectorWheel = false
