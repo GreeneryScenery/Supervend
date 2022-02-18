@@ -13,7 +13,7 @@ class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<Cart
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_layout,parent,false)
+            .inflate(R.layout.cart_layout,parent,false)
         return CartViewHolder(v, cartList)
 
     }
@@ -24,16 +24,12 @@ class CartAdapter(val cartList: ArrayList<CartItem>) : RecyclerView.Adapter<Cart
 
     // The class holding the list view
     class CartViewHolder(cartView: View, cartList: ArrayList<CartItem>) : RecyclerView.ViewHolder(cartView) {
-        var cartImage: ImageView
-        var check: ImageView
-        var cartName: TextView
-        var cartAmount: TextView
+        var cartImage: ImageView = cartView.findViewById(R.id.cartView)
+        private var check: ImageView = cartView.findViewById(R.id.checkView)
+        private var cartName: TextView = cartView.findViewById(R.id.cartName)
+        var cartAmount: TextView = cartView.findViewById(R.id.cartAmount)
 
         init {
-            cartImage = cartView.findViewById(R.id.cartView)
-            check = cartView.findViewById(R.id.checkView)
-            cartName = cartView.findViewById(R.id.cartName)
-            cartAmount = cartView.findViewById(R.id.cartAmount)
 
             check.visibility = View.GONE
 
