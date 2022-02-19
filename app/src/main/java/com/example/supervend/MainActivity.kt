@@ -71,6 +71,9 @@ class MainActivity : AppCompatActivity() {
             myEdit.apply()
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+        recyclerView.layoutManager =
+            GridLayoutManager(applicationContext, sp.getInt("columns", 2))
+
 
         for (i in nameArray.indices) {
             itemList.add(
