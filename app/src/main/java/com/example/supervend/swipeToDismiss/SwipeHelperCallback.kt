@@ -1,11 +1,10 @@
 package com.example.reorderrecyclerview.swipeToDismiss
 
-import android.content.Context
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
+import com.example.supervend.CartAdapter
 
-class SwipeHelperCallback(val adapter : ItemTouchHelperAdapter) : ItemTouchHelper.Callback() {
+class SwipeHelperCallback(val adapter: CartAdapter) : ItemTouchHelper.Callback() {
     override fun getMovementFlags(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder

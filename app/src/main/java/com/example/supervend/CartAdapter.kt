@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 import androidx.core.view.get
+import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
 import com.google.android.material.snackbar.Snackbar
 
-class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit, val onSwiped : () -> Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(),
+    ItemTouchHelperAdapter {
     companion object {
         var isEnabled = false
         private lateinit var itemSelectedList:ArrayList<Int>
@@ -109,5 +111,16 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
             }
         }
         notifyDataSetChanged()
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
+        return false
+    }
+
+    override fun onItemDismiss(position: Int) {
+        cartList.removeAt(position)
+        notifyItemRemoved(position)
+        onSwiped()
+        showMenuDelete(false)
     }
 }
