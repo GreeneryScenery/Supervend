@@ -45,19 +45,22 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/layout/third_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/menu/menu_main.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Supervend/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable/add.xml" value="0.403125" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable/cart_layout_bg_shape.xml" value="0.28703703703703703" />
+        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.403125" />
+        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/drawable/minus.xml" value="0.403125" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_item.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_main.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/activity_reviews.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/card_layout.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/cart_layout.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/cart_menu.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/content_main.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/layout/list_review_item.xml" value="0.33" />
         <entry key="..\:/Users/yuebi/OneDrive - NUS High School/Programming/AndroidStudio/SuperVend/app/src/main/res/menu/menu_main.xml" value="0.21875" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
