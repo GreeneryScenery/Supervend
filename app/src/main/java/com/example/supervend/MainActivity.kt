@@ -85,8 +85,21 @@ class MainActivity : AppCompatActivity() {
             )
         }
         val adapter = RecyclerAdapter(itemList)
-        recyclerView.layoutManager =
-            GridLayoutManager(applicationContext, sp.getInt("columns", 2))
+        val orientation = resources.configuration.orientation
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.layoutManager =
+                GridLayoutManager(applicationContext, sp.getInt("columns", 2))
+        }
+        else {
+            if (sp.getInt("columns", 2) >= 3) {
+                recyclerView.layoutManager =
+                    GridLayoutManager(applicationContext, 2)
+            }
+            else {
+                recyclerView.layoutManager =
+                    GridLayoutManager(applicationContext, sp.getInt("columns", 2))
+            }
+        }
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->
