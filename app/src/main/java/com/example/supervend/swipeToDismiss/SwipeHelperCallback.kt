@@ -31,11 +31,9 @@ class SwipeHelperCallback(val adapter: CartAdapter, private var sp: SharedPrefer
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         if (direction == 16) {
             adapter.onItemRemove(viewHolder.adapterPosition, sp, itemNames)
-            Log.i(TAG,"Leftaaaaa")
         }
         else if (direction == 32) {
             adapter.onItemAdd(viewHolder.adapterPosition, sp, itemNames)
-            Log.i(TAG,"Rightaaaaa")
         }
     }
 }
