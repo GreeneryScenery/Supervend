@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
@@ -41,10 +42,10 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
 
     // The class holding the list view
     class CartViewHolder(cartView: View, cartList: ArrayList<CartItem>, var showMenuDelete: (Boolean) -> Unit) : RecyclerView.ViewHolder(cartView) {
-        var cartImage: ImageView = cartView.findViewById(R.id.cartView)
+        private var cartImage: ImageView = cartView.findViewById(R.id.cartView)
         private var check: ImageView = cartView.findViewById(R.id.checkView)
         private var cartName: TextView = cartView.findViewById(R.id.cartName)
-        var cartAmount: TextView = cartView.findViewById(R.id.cartAmount)
+        private var cartAmount: TextView = cartView.findViewById(R.id.cartAmount)
 
         init {
 

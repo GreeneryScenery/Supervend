@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
@@ -58,6 +57,21 @@ class MainActivity : AppCompatActivity() {
         val weightArray = resources.getStringArray(R.array.item_weights)
         val brandArray = resources.getStringArray(R.array.item_brands)
         val descArray = resources.getStringArray(R.array.item_descriptions)
+        val sp = getSharedPreferences("settings", MODE_PRIVATE)
+
+        if (sp.getBoolean("darkMode",
+                this.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES)){
+            val myEdit = sp.edit()
+            myEdit.putBoolean("darkMode", true)
+            myEdit.apply()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else{
+            val myEdit = sp.edit()
+            myEdit.putBoolean("darkMode", false)
+            myEdit.apply()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         for (i in nameArray.indices) {
             itemList.add(
                 Item(
@@ -81,7 +95,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val sp = getSharedPreferences("settings", MODE_PRIVATE)
         val myEdit = sp.edit()
         if (sp.getBoolean("initiatedReviews", false)){
             Log.i("revAct", "skipped review initiation")
@@ -162,7 +175,7 @@ class MainActivity : AppCompatActivity() {
                             getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         val clip = ClipData.newPlainText("SuperVend Phone Number", getString(R.string.phone))
                         clipboard.setPrimaryClip(clip)
-                        val toast = Toast.makeText(applicationContext, "Phone number copied to clipboard!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Phone number copied to clipboard!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(Intent.ACTION_DIAL)
                         intent.data = Uri.parse("tel:${getString(R.string.phone)}")
                         if(intent.resolveActivity(packageManager) != null)
@@ -173,7 +186,7 @@ class MainActivity : AppCompatActivity() {
                             getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         val clip = ClipData.newPlainText("SuperVend Email", getString(R.string.email))
                         clipboard.setPrimaryClip(clip)
-                        val toast = Toast.makeText(applicationContext, "Email copied to clipboard!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Email copied to clipboard!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(Intent.ACTION_SENDTO)
                         intent.data = Uri.parse("mailto:${getString(R.string.email)}")
                         intent.putExtra(Intent.EXTRA_SUBJECT, "SuperVend")
@@ -182,10 +195,10 @@ class MainActivity : AppCompatActivity() {
                             startActivity(intent)
                     }
                     builder.apply {
-                        setPositiveButton(R.string.ok,
-                            DialogInterface.OnClickListener { dialog, id ->
-                                // User clicked OK button
-                            })
+                        setPositiveButton(R.string.ok
+                        ) { dialog, id ->
+                            // User clicked OK button
+                        }
                         /*setNegativeButton(R.string.cancel,
                                         DialogInterface.OnClickListener { dialog, id ->
                                             // User cancelled the dialog
@@ -208,10 +221,10 @@ class MainActivity : AppCompatActivity() {
                     val dialogView = inflater.inflate(R.layout.description, null)
                     builder.setView(dialogView)
                     builder.apply {
-                        setPositiveButton(R.string.ok,
-                            DialogInterface.OnClickListener { dialog, id ->
-                                // User clicked OK button
-                            })
+                        setPositiveButton(R.string.ok
+                        ) { dialog, id ->
+                            // User clicked OK button
+                        }
                         /*setNegativeButton(R.string.cancel,
                                         DialogInterface.OnClickListener { dialog, id ->
                                             // User cancelled the dialog
@@ -228,7 +241,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.columns -> {
-                val alertDialog: AlertDialog? = this?.let {
+                val alertDialog: AlertDialog? = this.let {
                     val builder = AlertDialog.Builder(it)
                     val inflater = this.layoutInflater
                     val dialogView = inflater.inflate(R.layout.columns, null)
@@ -240,31 +253,34 @@ class MainActivity : AppCompatActivity() {
                         // In landscape
                         if (recyclerView.adapter!!.itemCount > 3) {
                             numberPicker.maxValue = 3
-                        }
-                        else {
+                        } else {
                             numberPicker.maxValue = recyclerView.adapter!!.itemCount
                         }
                     } else {
                         // In portrait
                         if (recyclerView.adapter!!.itemCount > 2) {
                             numberPicker.maxValue = 2
-                        }
-                        else {
+                        } else {
                             numberPicker.maxValue = recyclerView.adapter!!.itemCount
                         }
                     }
                     numberPicker.minValue = 1
                     numberPicker.wrapSelectorWheel = false
                     builder.apply {
-                        setPositiveButton(R.string.ok,
-                            DialogInterface.OnClickListener { dialog, id ->
-                                // User clicked OK button
-                                recyclerView.layoutManager = GridLayoutManager(this.context,numberPicker.value)
-                            })
-                        setNegativeButton(R.string.cancel,
-                            DialogInterface.OnClickListener { dialog, id ->
-                                // User cancelled the dialog
-                            })
+                        setPositiveButton(R.string.ok
+                        ) { dialog, id ->
+                            // User clicked OK button
+                            val sp = getSharedPreferences("settings", MODE_PRIVATE)
+                            val myEdit = sp.edit()
+                            myEdit.putInt("columns", numberPicker.value)
+                            myEdit.apply()
+                            recyclerView.layoutManager =
+                                GridLayoutManager(this.context, numberPicker.value)
+                        }
+                        setNegativeButton(R.string.cancel
+                        ) { dialog, id ->
+                            // User cancelled the dialog
+                        }
                     }
                     // Set other dialog properties
                     builder?.setMessage("Select number of columns.")
@@ -277,11 +293,22 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.mode -> {
+                val sp = getSharedPreferences("settings", MODE_PRIVATE)
                 when (this.resources.configuration.uiMode and  Configuration.UI_MODE_NIGHT_MASK) {
-                    Configuration.UI_MODE_NIGHT_YES -> AppCompatDelegate.setDefaultNightMode(
-                        AppCompatDelegate.MODE_NIGHT_NO)
-                    Configuration.UI_MODE_NIGHT_NO -> AppCompatDelegate.setDefaultNightMode(
-                        AppCompatDelegate.MODE_NIGHT_YES)
+
+                    Configuration.UI_MODE_NIGHT_YES ->{
+                        val myEdit = sp.edit()
+                        myEdit.putBoolean("darkMode", false)
+                        myEdit.apply()
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+
+                    Configuration.UI_MODE_NIGHT_NO ->{
+                        val myEdit = sp.edit()
+                        myEdit.putBoolean("darkMode", true)
+                        myEdit.apply()
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
                 }
                 true
             }
