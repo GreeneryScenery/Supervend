@@ -28,7 +28,7 @@ class CartActivity  : AppCompatActivity() {
         extractItems()
 
 
-        cartView = findViewById<RecyclerView>(R.id.cartRecycle)
+        cartView = findViewById(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
         adapter = CartAdapter(cartList){show -> showDeleteMenu(show)}
         cartView.layoutManager = layoutManager
