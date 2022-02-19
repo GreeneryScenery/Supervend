@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.reorderrecyclerview.swipeToDismiss.SwipeHelperCallback
+import com.example.supervend.swipeToDismiss.SwipeHelperCallback
 
 class CartActivity  : AppCompatActivity() {
 
@@ -31,11 +31,13 @@ class CartActivity  : AppCompatActivity() {
 
         extractItems()
 
+        val sp = getSharedPreferences("cart", MODE_PRIVATE)
+        val itemNames = resources.getStringArray(R.array.item_names)
 
         cartView = findViewById(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
         adapter = CartAdapter(cartList,{show -> showDeleteMenu(show)},{})
-        val callback: ItemTouchHelper.Callback = SwipeHelperCallback(adapter)
+        val callback: ItemTouchHelper.Callback = SwipeHelperCallback(adapter, sp, itemNames)
         mItemTouchHelper = ItemTouchHelper(callback)
         mItemTouchHelper?.attachToRecyclerView(findViewById(R.id.cartRecycle))
         cartView.layoutManager = layoutManager

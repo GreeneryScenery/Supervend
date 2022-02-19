@@ -1,14 +1,17 @@
 package com.example.supervend
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.SharedPreferences
 import android.opengl.Visibility
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
 import com.google.android.material.snackbar.Snackbar
@@ -113,14 +116,50 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
         notifyDataSetChanged()
     }
 
+    private fun extractItems(sp:SharedPreferences, itemNames: Array<String>){
+        cartList.clear()
+        for (i in itemNames){
+            val amount = sp.getInt("${i}|amount", 0)
+            val image = sp.getInt("${i}|image", -1)
+            Log.i("CartItem", "${i}, ${amount}")
+            if (amount==0){
+                continue
+            }
+            cartList.add(CartItem(i, amount, image, false))
+        }
+    }
+
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
         return false
     }
 
-    override fun onItemDismiss(position: Int) {
-        cartList.removeAt(position)
-        notifyItemRemoved(position)
+    override fun onItemRemove(position: Int, sp:SharedPreferences, itemNames: Array<String>) {
+        val item = cartList[position]
+        for (i in itemNames.indices) {
+            if (item.name == itemNames[i]) {
+                val myEdit = sp.edit()
+                val oldAmount = sp.getInt("${item.name}|amount", 1)
+                myEdit.putInt("${item.name}|amount", oldAmount - 1)
+                myEdit.apply()
+            }
+        }
+        extractItems(sp,itemNames)
+        notifyDataSetChanged()
         onSwiped()
-        showMenuDelete(false)
+    }
+
+    override fun onItemAdd(position: Int, sp:SharedPreferences, itemNames: Array<String>) {
+        val item = cartList[position]
+        for (i in itemNames.indices) {
+            if (item.name == itemNames[i]) {
+                val myEdit = sp.edit()
+                val oldAmount = sp.getInt("${item.name}|amount", -1)
+                myEdit.putInt("${item.name}|amount", oldAmount + 1)
+                myEdit.apply()
+            }
+        }
+        extractItems(sp, itemNames)
+        notifyDataSetChanged()
+        onSwiped()
     }
 }

@@ -1,5 +1,7 @@
 package com.example.reorderrecyclerview.utils
 
+import android.content.SharedPreferences
+
 interface ItemTouchHelperAdapter {
     /**
      * Called when an item has been dragged far enough to trigger a move. This is called every time
@@ -31,5 +33,6 @@ interface ItemTouchHelperAdapter {
      * see RecyclerView#getAdapterPositionFor(RecyclerView.ViewHolder)
      * see RecyclerView.ViewHolder#getAdapterPosition()
      */
-    fun onItemDismiss(position: Int)
+    fun onItemRemove(position: Int, sp: SharedPreferences, itemNames: Array<String>)
+    fun onItemAdd(position: Int, sp:SharedPreferences, itemNames: Array<String>)
 }
