@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        val layoutManager = GridLayoutManager(this, 2)
         val nameArray = resources.getStringArray(R.array.item_names)
         val priceArray = resources.getStringArray(R.array.item_prices)
         val weightArray = resources.getStringArray(R.array.item_weights)
@@ -71,8 +70,6 @@ class MainActivity : AppCompatActivity() {
             myEdit.apply()
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        recyclerView.layoutManager =
-            GridLayoutManager(applicationContext, sp.getInt("columns", 2))
 
 
         for (i in nameArray.indices) {
@@ -88,7 +85,8 @@ class MainActivity : AppCompatActivity() {
             )
         }
         val adapter = RecyclerAdapter(itemList)
-        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager =
+            GridLayoutManager(applicationContext, sp.getInt("columns", 2))
         recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { view ->
