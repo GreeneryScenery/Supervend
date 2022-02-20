@@ -18,7 +18,4 @@
     <color name="white">#FFFFFFFF</color>
     <color name="off_white">#e1e2e1</color>
     <color name="off_black">#202020</color>
-
-    <color name="green">#32CD32</color>
-    <color name="red">#D8000C</color>
 </resources>
