@@ -40,7 +40,7 @@ class CartActivity  : AppCompatActivity() {
 
         cartView = findViewById(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
-        adapter = CartAdapter(cartList,{show -> showDeleteMenu(show)},{},empty)
+        adapter = CartAdapter(cartView,cartList,{show -> showDeleteMenu(show)},{},empty)
         val callback: ItemTouchHelper.Callback = SwipeHelperCallback(adapter, sp, itemNames)
         mItemTouchHelper = ItemTouchHelper(callback)
         mItemTouchHelper?.attachToRecyclerView(findViewById(R.id.cartRecycle))

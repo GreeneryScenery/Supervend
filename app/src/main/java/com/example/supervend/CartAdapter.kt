@@ -17,7 +17,7 @@ import androidx.core.view.get
 import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
 import com.google.android.material.snackbar.Snackbar
 
-class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit, val onSwiped : () -> Unit, private val empty:TextView) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(),
+class CartAdapter(private val recyclerView: RecyclerView,private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit, val onSwiped : () -> Unit, private val empty:TextView) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(),
     ItemTouchHelperAdapter {
     companion object {
         var isEnabled = false
@@ -32,7 +32,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val v : View = LayoutInflater.from(parent.context)
             .inflate(R.layout.cart_layout,parent,false)
-        return CartViewHolder(v, cartList, showMenuDelete)
+        return CartViewHolder(recyclerView, v, cartList, showMenuDelete)
 
     }
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
@@ -41,7 +41,7 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
     override fun getItemCount() = cartList.size
 
     // The class holding the list view
-    class CartViewHolder(cartView: View, cartList: ArrayList<CartItem>, var showMenuDelete: (Boolean) -> Unit) : RecyclerView.ViewHolder(cartView) {
+    class CartViewHolder(val recyclerView: RecyclerView, cartView: View, cartList: ArrayList<CartItem>, var showMenuDelete: (Boolean) -> Unit) : RecyclerView.ViewHolder(cartView) {
         private var cartImage: ImageView = cartView.findViewById(R.id.cartView)
         private var check: ImageView = cartView.findViewById(R.id.checkView)
         private var cartName: TextView = cartView.findViewById(R.id.cartName)
@@ -56,11 +56,18 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
 
                 if (itemSelectedList.contains(pos)) {
                     itemSelectedList.remove(pos)
-                    check.visibility = View.GONE
+                    check.setImageResource(R.drawable.uncheck)
+                    //check.visibility = View.GONE
                     cartList[pos].selected = false
                     if (itemSelectedList.isEmpty()) {
                         showMenuDelete(false)
                         isEnabled = false
+                        for (i in cartList.indices) {
+                            val cartView = recyclerView[i]
+                            val check: ImageView = cartView.findViewById(R.id.checkView)
+                            check.setImageResource(R.drawable.uncheck)
+                            check.visibility = View.GONE
+                        }
                     }
                 }
                 else if (isEnabled) {
@@ -76,12 +83,20 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
             cartView.setOnLongClickListener {
                 val pos = adapterPosition
 
+                for (i in cartList.indices) {
+                    val cartView = recyclerView[i]
+                    val check: ImageView = cartView.findViewById(R.id.checkView)
+                    check.setImageResource(R.drawable.uncheck)
+                    check.visibility = View.VISIBLE
+                }
+
                 isEnabled = true
                 itemSelectedList.add(pos)
                 check.visibility = View.VISIBLE
                 check.setImageResource(R.drawable.check)
                 cartList[pos].selected = true
                 showMenuDelete(true)
+
                 true
             }
         }
