@@ -20,6 +20,10 @@ import android.net.Uri
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
+import android.content.Intent
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -203,10 +207,10 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Email copied to clipboard!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(Intent.ACTION_SENDTO)
                         intent.data = Uri.parse("mailto:${getString(R.string.email)}")
+                        intent.putExtra(Intent.EXTRA_EMAIL, getString(R.string.email))
                         intent.putExtra(Intent.EXTRA_SUBJECT, "SuperVend")
                         intent.putExtra(Intent.EXTRA_TEXT, "Dear SuperVend,")
-                        if(intent.resolveActivity(packageManager) != null)
-                            startActivity(intent)
+                        startActivity(Intent.createChooser(intent, "Email"));
                     }
                     builder.apply {
                         setPositiveButton(R.string.ok
