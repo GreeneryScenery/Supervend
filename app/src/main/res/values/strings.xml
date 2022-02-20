@@ -92,6 +92,7 @@
     <string name="item_brand">Brand: %s</string>
     <string name="item_description">Description: %s</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="empty">Shopping cart is empty.</string>
 
     <array name="reviews">
         <item>@array/milo_instant_mix</item>

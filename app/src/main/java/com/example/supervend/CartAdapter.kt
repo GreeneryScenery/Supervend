@@ -17,7 +17,7 @@ import androidx.core.view.get
 import com.example.reorderrecyclerview.utils.ItemTouchHelperAdapter
 import com.google.android.material.snackbar.Snackbar
 
-class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit, val onSwiped : () -> Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(),
+class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMenuDelete:(Boolean) -> Unit, val onSwiped : () -> Unit, private val empty:TextView) : RecyclerView.Adapter<CartAdapter.CartViewHolder>(),
     ItemTouchHelperAdapter {
     companion object {
         var isEnabled = false
@@ -113,8 +113,16 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
                 val check: ImageView = cartView.findViewById(R.id.checkView)
                 check.visibility = View.GONE
             }
+            showMenuDelete(false)
         }
         notifyDataSetChanged()
+
+        if (cartList.isNotEmpty()) {
+            empty.visibility = View.GONE
+        }
+        else {
+            empty.visibility = View.VISIBLE
+        }
     }
 
     private fun extractItems(sp:SharedPreferences, itemNames: Array<String>){
@@ -147,6 +155,13 @@ class CartAdapter(private val cartList: ArrayList<CartItem>, private var showMen
         extractItems(sp,itemNames)
         notifyDataSetChanged()
         onSwiped()
+
+        if (cartList.isNotEmpty()) {
+            empty.visibility = View.GONE
+        }
+        else {
+            empty.visibility = View.VISIBLE
+        }
     }
 
     override fun onItemAdd(position: Int, sp:SharedPreferences, itemNames: Array<String>) {

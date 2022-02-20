@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -34,14 +36,23 @@ class CartActivity  : AppCompatActivity() {
         val sp = getSharedPreferences("cart", MODE_PRIVATE)
         val itemNames = resources.getStringArray(R.array.item_names)
 
+        val empty = findViewById<TextView>(R.id.empty)
+
         cartView = findViewById(R.id.cartRecycle)
         val layoutManager = GridLayoutManager(this, 1)
-        adapter = CartAdapter(cartList,{show -> showDeleteMenu(show)},{})
+        adapter = CartAdapter(cartList,{show -> showDeleteMenu(show)},{},empty)
         val callback: ItemTouchHelper.Callback = SwipeHelperCallback(adapter, sp, itemNames)
         mItemTouchHelper = ItemTouchHelper(callback)
         mItemTouchHelper?.attachToRecyclerView(findViewById(R.id.cartRecycle))
         cartView.layoutManager = layoutManager
         cartView.adapter = adapter
+
+        if (cartList.isNotEmpty()) {
+            empty.visibility = View.GONE
+        }
+        else {
+            empty.visibility = View.VISIBLE
+        }
     }
 
     private fun extractItems(){
