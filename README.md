@@ -1,7 +1,7 @@
 # Supervend
 
 ## Description
-A simple app for a CS project.
+A simple app for a CS assignment.
 
 ## Screenshots
 <img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/4036e101-6b8d-4326-aa54-9228b5194090">
