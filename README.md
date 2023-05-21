@@ -4,10 +4,9 @@
 A simple app for a CS assignment.
 
 ## Screenshots
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/4036e101-6b8d-4326-aa54-9228b5194090">
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/9c260160-06b5-4dfd-887e-2c3414fd7ceb">
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/3b493513-d212-4eab-812a-c02026008227">
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/49663b7a-5c46-4b7f-99f6-5ce8fec5da3f">
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/0ce39c8e-79bf-4517-b76a-713ab309e8ef">
-<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/b56ecd8d-6407-4933-95e1-ad34f4f9471d">
-
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/432e17ee-9992-4af6-bab7-3c6e15b99918">
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/53e65c39-753b-4bfc-981b-5813ddc89b3d">
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/aae52633-aeaa-45b5-a0e4-ec414b50c3ed">
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/8711e3f8-3b11-4d36-9a54-15794b6c70e1">
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/3c08bea1-638a-4c2d-85ac-d11c49784705">
+<img width=256 src="https://github.com/GreeneryScenery/Supervend/assets/89194387/1ced9a0f-a2dd-4e23-b7b7-6da43f010d77">
